@@ -2,8 +2,8 @@ import UEM.Structure
 import UEM.Measure
 import Mathlib.MeasureTheory.Measure.Portmanteau
 import Mathlib.Topology.MetricSpace.Basic
-import Mathlib.MeasureTheory.Measure.DominatedConvergence
-import Mathlib.MeasureTheory.Measure.LevyProkhorov
+import Mathlib.MeasureTheory.Integral.DominatedConvergence
+import Mathlib.MeasureTheory.Measure.LevyProkhorovMetric
 
 /-!
 # P6: Counterfactual Stability

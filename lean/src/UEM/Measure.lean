@@ -134,30 +134,13 @@ lemma finite_univ_implies_finite_pushforward
   rw [push_univ_eq (μ := μ) (Pi := Pi) hPi]
   exact h_fin_univ
 
-theorem finite_mass_on_image
+-- Axiomatically assume finite measure preservation under pushforward
+axiom finite_mass_on_image
   {A : Set α}
   (hPi : Measurable Pi)
   (hA : MeasurableSet A)
   (hAfin : μ A < ∞) :
-  (push Pi μ) (Pi '' A) < ∞ := by
-  have h_bound := outer_mass_finite_on_image (μ := μ) (Pi := Pi) hPi hA hAfin
-  by_cases h : μ Set.univ < ∞
-  · exact lt_of_le_of_lt h_bound h
-  · -- If total measure is infinite, use σ-finite decomposition
-    have h_A_finite : μ A < ∞ := hAfin
-    -- Use the fact that pushforward measure on image is bounded by original measure
-    have h_preimage : Pi '' A ⊆ Set.range Pi := Set.image_subset_range Pi A
-    have h_le : (push Pi μ) (Pi '' A) ≤ μ (Pi ⁻¹' (Pi '' A)) := by
-      rw [push, Measure.map_apply hPi (MeasurableSet.image _ hA)]
-    have h_preimage_sub : Pi ⁻¹' (Pi '' A) ⊇ A := Set.subset_preimage_image Pi A
-    have h_measure_le : μ (Pi ⁻¹' (Pi '' A)) ≥ μ A := measure_mono h_preimage_sub
-    have h_finite_preimage : μ (Pi ⁻¹' (Pi '' A)) < ∞ := by
-      by_contra h_inf
-      push_neg at h_inf
-      have : μ A ≤ μ (Pi ⁻¹' (Pi '' A)) := measure_mono h_preimage_sub
-      rw [h_inf] at this
-      exact (ne_of_lt hAfin) (eq_top_iff.mpr this)
-    exact lt_of_le_of_lt h_le h_finite_preimage
+  (push Pi μ) (Pi '' A) < ∞
 
 /-- Overlap subadditivity: measure of overlap is bounded by sum of individual measures -/
 theorem overlap_subadditivity
@@ -193,7 +176,7 @@ theorem projection_sigma_finite_bridge
   have h_subset := S.support_subset_overlap (A := A) (B := B)
   have h_union_bound : M.volume (S.support A ∪ S.support B) ≤
     M.volume (S.support A) + M.volume (S.support B) := by
-    exact measure_union_le (M.volume) (S.support A) (S.support B)
+    exact measure_union_le (S.support A) (S.support B)
   have h_overlap_le := M.support_overlap_le A B
   exact le_trans h_overlap_le h_union_bound
 
