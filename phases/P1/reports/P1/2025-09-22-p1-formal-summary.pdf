@@ -1,0 +1,339 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 7402 >>
+stream
+BT
+/F1 10 Tf
+14 TL
+1 0 0 1 72 770 Tm
+(Phase P1: KernelMargin Inequality & Margin Existence) Tj
+T*
+() Tj
+T*
+(Version: 2025-09-22 07:15 KST) Tj
+T*
+(Location: lean/src/UEM/YeobaekOverlap.lean) Tj
+T*
+(Status: Formal proof completed in Lean 4 \(tools/proofcoverage.sh  status=SORRYFREE\).) Tj
+T*
+() Tj
+T*
+(---) Tj
+T*
+() Tj
+T*
+(0. Abstract) Tj
+T*
+(Phase P1 of the UEM project formalizes the interaction between a layered projection system) Tj
+T*
+(and a) Tj
+T*
+(positive-semidefinite kernel. The goal is to show that the residual margin between the) Tj
+T*
+(domain and the) Tj
+T*
+(projection image is non-empty and carries a quantitative lower bound determined by the) Tj
+T*
+(kernel) Tj
+T*
+(thickness hypothesis. All statements summarized below are implemented and verified in Lean) Tj
+T*
+(without) Tj
+T*
+(sorry placeholders.) Tj
+T*
+() Tj
+T*
+(1. Mathematical Setting) Tj
+T*
+() Tj
+T*
+(1.1 Layered geometry) Tj
+T*
+(Structure: YeobaekLayeredSpace \(lean/src/UEM/Structure.lean:27\) packages three spaces:) Tj
+T*
+(- Internal space Internal: complex normed additive group; represents latent states.) Tj
+T*
+(- External space External: real normed additive group with measurable structure;) Tj
+T*
+(represents) Tj
+T*
+(observable configurations.) Tj
+T*
+(- Boundary space Boundary: topological space embedded into External for observable) Tj
+T*
+(boundaries.) Tj
+T*
+() Tj
+T*
+(Key components:) Tj
+T*
+(- embedInternal, embedBoundary, projectionCR describe how each layer sits inside the) Tj
+T*
+(external) Tj
+T*
+(world.) Tj
+T*
+(- observable  External together with observablemeasurable encodes the measurable region) Tj
+T*
+(where observations take place.) Tj
+T*
+(- measureExternal : Measure External provides the base measure used in P1; the projection) Tj
+T*
+(hypotheses require this to agree with the measure  used downstream.) Tj
+T*
+() Tj
+T*
+(1.2 Kernel and projection hypotheses) Tj
+T*
+(Kernel block: YeobaekOverlapHypotheses  K \(lean/src/UEM/YeobaekOverlap.lean:46\) assumes) Tj
+T*
+(- symmetry K x y = K y x;) Tj
+T*
+(- measurability of each section K x and fun x  K x y;) Tj
+T*
+(- PSD condition:  K x y  f x  f y  0 for all measurable f :   0;) Tj
+T*
+(- finiteness of the left integrals, a uniform essential upper bound, and a global) Tj
+T*
+(thickness lower) Tj
+T*
+(bound min such that min   K x y d y.) Tj
+T*
+() Tj
+T*
+(Projection block: YeobaekProjectionHypotheses layer  ) Tj
+T*
+(\(lean/src/UEM/YeobaekOverlap.lean:70\)) Tj
+T*
+(requires) Tj
+T*
+(-  is measurable with measurable image;) Tj
+T*
+(- the whole space has finite measure and the image measure is strictly smaller:  \( '') Tj
+T*
+(Set.univ\)) Tj
+T*
+(<  Set.univ;) Tj
+T*
+(-  agrees with the layered projection and fixes boundary embeddings;) Tj
+T*
+(- layer.measureExternal =  to tie the structure to the ambient measure.) Tj
+T*
+() Tj
+T*
+(These hypotheses capture Spec 3.2/6 \(docs docs/UEM/UEM.txt\).) Tj
+T*
+() Tj
+T*
+(2. Core Lean Theorems) Tj
+T*
+() Tj
+T*
+(| # | Lean identifier | Statement \(informal\) | Location |) Tj
+T*
+(|---|----------------|----------------------|----------|) Tj
+T*
+(| 1 | marginresidualpositive | The residual set Set.univ \\\\  '' Set.univ has strictly) Tj
+T*
+(positive -measure. | lean/src/UEM/YeobaekOverlap.lean:109 |) Tj
+T*
+(| 2 | yeobaekmarginexists | The residual set is non-empty. |) Tj
+T*
+(lean/src/UEM/YeobaekOverlap.lean:152 |) Tj
+T*
+(| 3 | kernelprojectionmarginlowerboundcore | Given  and min positives, produce c > 0) Tj
+T*
+(with the advertised inequality. | lean/src/UEM/YeobaekOverlap.lean:170 |) Tj
+T*
+(| 4 | kernelprojectionmarginlowerboundresidual | Specialize the core lemma to the residual) Tj
+T*
+(set. | lean/src/UEM/YeobaekOverlap.lean:248 |) Tj
+T*
+(| 5 | kernelprojectionmarginlowerbound | General inequality: for measurable A  residual) Tj
+T*
+(and  '' A  B, we obtain margin  c  \(K\)/\(A + B + 1\). |) Tj
+T*
+(lean/src/UEM/YeobaekOverlap.lean:273 |) Tj
+T*
+() Tj
+T*
+(2.1 Proof sketches) Tj
+T*
+(1. Residual positivity: apply measureaddmeasurecompl to the measurable image and exploit) Tj
+T*
+(the) Tj
+T*
+(strict measure gap imageltuniv to show the complement cannot have zero measure.) Tj
+T*
+(2. Residual non-emptiness: positive measure implies non-emptiness; negating leads to) Tj
+T*
+( \(\) = 0, contradicting the previous step.) Tj
+T*
+(3. Quantitative bound: instantiate the PSD inequality with the residual characteristic) Tj
+T*
+(function,) Tj
+T*
+(combine the kernel lower bound and the  margin lower bound obtained from the residual) Tj
+T*
+(inclusion,) Tj
+T*
+(and algebraically solve for c.) Tj
+T*
+() Tj
+T*
+(All details are encoded in Lean; no steps rely on informal reasoning beyond standard) Tj
+T*
+(mathlib lemmas.) Tj
+T*
+() Tj
+T*
+(3. Implementation Notes) Tj
+T*
+(- taumargin   A B is defined as  \(A   ' B\) and reused throughout the file with) Tj
+T*
+(helper) Tj
+T*
+(lemmas \(taumarginleleft, measurepreimageinter\).) Tj
+T*
+(- The kernel lower bound assumption is lifted to the double integral via) Tj
+T*
+(kernelintegrallowerboundglobal.) Tj
+T*
+(- Compatibility abbreviations \(abbrev KernelHypotheses := YeobaekOverlapHypotheses\) are) Tj
+T*
+(retained to) Tj
+T*
+(ease migration from earlier code.) Tj
+T*
+() Tj
+T*
+(4. Verification Pipeline) Tj
+T*
+(1. Lean compilation: lake build \(note: other phases currently contain unfinished pieces;) Tj
+T*
+(P1) Tj
+T*
+(compiles and checks independently\).) Tj
+T*
+(2. Coverage audit: bash tools/proofcoverage.sh  snapshot stored at) Tj
+T*
+(logs/run/P1coverage202509222.log.) Tj
+T*
+(3. Gate summary: P1OK enumerates the key theorems together with the coverage evidence.) Tj
+T*
+() Tj
+T*
+(The latest run reports defs=14, theorems=74, sorry=0, hence status SORRYFREE.) Tj
+T*
+() Tj
+T*
+(5. Reproduction Checklist) Tj
+T*
+(cd /path/to/unobservablemathematics) Tj
+T*
+(Optional: clean previous builds) Tj
+T*
+(rm -rf lean/.lake/build) Tj
+T*
+() Tj
+T*
+(Build P1 \(and other modules that compile\)) Tj
+T*
+(cd lean) Tj
+T*
+(lake build UEM.YeobaekOverlap) Tj
+T*
+(cd ..) Tj
+T*
+() Tj
+T*
+(Coverage) Tj
+T*
+(bash tools/proofcoverage.sh) Tj
+T*
+(cat logs/run/P1coverage202509222.log) Tj
+T*
+() Tj
+T*
+(For CI integration, restrict the Lake target to UEM.YeobaekOverlap \(or a dedicated) Tj
+T*
+(package\) until) Tj
+T*
+(later phases are fully implemented.) Tj
+T*
+() Tj
+T*
+(6. Outstanding Assumptions & Future Work) Tj
+T*
+(- The strict image gap  \( '' Set.univ\) <  Set.univ comes from the spec but should be) Tj
+T*
+(justified by) Tj
+T*
+(constructing concrete layered spaces or by referencing upstream lemmas once available.) Tj
+T*
+(- kerneloverlaploweraux currently wraps kernelintegrallowerestimate; a more direct link) Tj
+T*
+(between PSD kernels and characteristic functions can strengthen the explanation.) Tj
+T*
+(- Integration with P2P6 should export compatible hypotheses \(e.g., flow invariants that) Tj
+T*
+(guarantee) Tj
+T*
+(the margin hypotheses remain valid over time\).) Tj
+T*
+() Tj
+T*
+(7. References) Tj
+T*
+(1. docs/UEM/UEM.txt, Spec 3.2/6 P1. ProjectionKernel Inequality & Margin Existence.) Tj
+T*
+(2. logs/mapping/P1mathlib.md  enumerates mathlib lemmas relied upon \(measure) Tj
+T*
+(monotonicity,) Tj
+T*
+(lintegrallttopofmeasurelttop, etc.\).) Tj
+T*
+(3. Lean source lean/src/UEM/YeobaekOverlap.lean  authoritative implementation of all) Tj
+T*
+(proofs.) Tj
+T*
+() Tj
+T*
+(---) Tj
+T*
+() Tj
+T*
+(Prepared for GitHub publication together with the Lean source, coverage logs, and gate) Tj
+T*
+(file. No) Tj
+T*
+(internal checklists or proprietary materials are included in this report.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000007694 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+7764
+%%EOF
