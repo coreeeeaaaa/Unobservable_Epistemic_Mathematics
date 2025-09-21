@@ -15,6 +15,73 @@ slots without restructuring the repository.
 - **Documentation**:
   - Phase report & PDF summary `phases/P1/reports/P1/`
   - Programme roadmap `docs/UEM/RoadmapOverview.md`
+ 
+
+
+# Unobservable Epistemic Mathematics – Phase P1
+▌ Yeobaek Overlap Equation · Margin Existence · Kernel Overlap Operator
+
+---
+
+## Philosophical Background
+> “Existence is described through points and moments,  
+> but the margin is revealed only through absence and relation.”
+
+- **여백중첩방정식 (Yeobaek Overlap Equation)** captures the *invisible complement* left behind by any projection.
+- **커널중첩연산자 (Kernel Overlap Operator)** expresses how unobservability overlaps with measurable kernels.
+- P1 is the first **formal, sorry-free proof bundle** certifying these principles.
+
+---
+
+## Iconic Definitions
+
+- **Margin Overlap Operator (⊕M)**  
+  For every projection \(P\), returns the *invisible margin* that remains unobserved.
+
+- **Kernel Overlap Operator (⊗K)**  
+  Quantifies the overlap of kernels inside the projection.
+
+- **Yeobaek Overlap Equation**  
+  \[
+    M(P) \neq \varnothing 
+    \quad \wedge \quad 
+    K(P) \leq M(P).
+  \]
+
+---
+
+## Theorem: Kernel–Margin Inequality
+
+For every projection \(P\),
+\[
+  K(P) \leq M(P).
+\]
+
+**Proof.** Implemented in  
+[`phases/P1/lean/src/UEM/YeobaekOverlap.lean`](phases/P1/lean/src/UEM/YeobaekOverlap.lean)  
+(SORRY_FREE, verified)
+
+- Coverage: [`phases/P1/artifacts/proof_coverage.txt`](phases/P1/artifacts/proof_coverage.txt)  
+- Quality Gate: [`phases/P1/artifacts/P1_OK`](phases/P1/artifacts/P1_OK)  
+- Execution Log: [`phases/P1/logs/run/`](phases/P1/logs/run/)
+
+---
+
+## Artifacts in this Release
+- Sorry-free Lean proof  
+- Proof coverage report  
+- P1_OK marker file  
+- Execution logs for reproducibility  
+
+---
+
+## Roadmap
+This release marks **Phase P1**.  
+Subsequent phases (P2–P6, M0–M3) will extend these operators into flow, syntax, measure, observer, and counterfactual domains.  
+See [`docs/UEM/RoadmapOverview.md`](docs/UEM/RoadmapOverview.md) for details.
+
+
+
 
 ## Philosophical Declaration
 
