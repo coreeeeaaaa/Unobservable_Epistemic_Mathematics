@@ -85,7 +85,7 @@ See [`docs/UEM/RoadmapOverview.md`](docs/UEM/RoadmapOverview.md) for details.
 
 ## Philosophical Declaration
 
-The foundational manifesto of UEM is recorded in [`비관측 인식수학 (UEM_ Unobservable Epistemic Mathematics) 선언문.txt`](<비관측 인식수학 (UEM_ Unobservable Epistemic Mathematics) 선언문.txt>). It articulates the guiding principles—categorical dualities, observer boundaries, and epistemic consistency—that motivate the formal development. The full declaration is reproduced below for convenience.
+The foundational manifesto of UEM is recorded in [`비관측 인식수학 (UEM_ Unobservable Epistemic Mathematics) 선언문.txt`](%EB%B9%84%EA%B4%80%EC%B8%A1%20%EC%9D%B8%EC%8B%9D%EC%88%98%ED%95%99%20(UEM_%20Unobservable%20Epistemic%20Mathematics)%20%EC%84%A0%EC%96%B8%EB%AC%B8.txt). It articulates the guiding principles—categorical dualities, observer boundaries, and epistemic consistency—that motivate the formal development. The full declaration is reproduced below for convenience.
 
 ### Formal Axioms and Inequalities
 
@@ -264,7 +264,7 @@ cat phases/P1/logs/run/P1_coverage_20250922_3.log
 ## 선언문
 
 비관측 인식수학의 전체 선언문은 다음 파일에서 확인할 수 있습니다:
-[`비관측 인식수학 (UEM_ Unobservable Epistemic Mathematics) 선언문.txt`](<비관측 인식수학 (UEM_ Unobservable Epistemic Mathematics) 선언문.txt>)
+[`비관측 인식수학 (UEM_ Unobservable Epistemic Mathematics) 선언문.txt`](%EB%B9%84%EA%B4%80%EC%B8%A1%20%EC%9D%B8%EC%8B%9D%EC%88%98%ED%95%99%20(UEM_%20Unobservable%20Epistemic%20Mathematics)%20%EC%84%A0%EC%96%B8%EB%AC%B8.txt)
 
 
 ## Licence
