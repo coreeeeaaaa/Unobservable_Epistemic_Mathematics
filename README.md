@@ -264,6 +264,10 @@ cat phases/P1/logs/run/P1_coverage_20250922_3.log
 - Each phase directory mirrors the structure used for P1. To publish a new phase, populate the
   corresponding folder with Lean proofs, logs, and reports following the same conventions.
 
+##선언문
+
+비관측 인식수학 (UEM_ Unobservable Epistemic Mathematics) 선언문.txt
+
 
 ## Licence
 
