@@ -266,7 +266,13 @@ cat phases/P1/logs/run/P1_coverage_20250922_3.log
 
 ## 선언문
 
-  [비관측 인식수학 (UEM_ Unobservable Epistemic Mathematics)   선언문.txt](docs/UEM/Nat(Hom(-, A), F) ≅ F(A) _ 비관측인식수학의 근간과 선언.txt)
+  ## 선언문
+
+  비관측 인식수학의 전체 선언문은 다음 파일에서 확인할 수 있습니다:
+  [`Nat(Hom(-, A), F) ≅ F(A) _ 비관측인식수학의 근간과 
+  선언.txt`](<docs/UEM/Nat(Hom(-, A), F) ≅ F(A) _ 비관측인식수학의 근간과 
+  선언.txt>)
+
 
 ## Licence
 
