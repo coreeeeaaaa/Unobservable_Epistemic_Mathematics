@@ -1,6 +1,6 @@
 import UEM.Structure
 import UEM.Measure
-import UEM.Kernel
+import UEM.YeobaekOverlap
 import Mathlib.MeasureTheory.Measure.MeasureSpace
 
 /-!
@@ -35,16 +35,16 @@ theorem projectionOverlapExchange (S : OverlapSystem)
   S.projection_hom
 
 -- Enhanced projection-overlap exchange with kernel bounds
-theorem projectionOverlapExchangeKernel (S : OverlapSystem)
+theorem projectionOverlapExchangeYeobaekKernel (S : OverlapSystem)
     [MeasurableSpace S.Space] (μ : Measure S.Space)
-    (K : S.Space → S.Space → ℝ≥0∞) (hK : KernelHypotheses μ K)
+    (K : S.Space → S.Space → ℝ≥0∞) (hK : YeobaekOverlapHypotheses μ K)
     (A B : S.Obj) :
     S.projection (S.overlap A B) = S.phi (S.projection A) (S.projection B) ∧
     ∃ c : ℝ≥0∞, c > 0 ∧ μ (S.support (S.overlap A B)) ≥
       c * (∫⁻ x, ∫⁻ y, K x y ∂μ ∂μ) / (μ (S.support A) + μ (S.support B) + 1) := by
   constructor
   · exact S.projection_hom
-  · -- Use kernel inequality from UEM.Kernel
+  · -- Use the 커널형 여백 중첩 하한 부등식에서 얻은 결과
     have h_measurable_A : MeasurableSet (S.support A) := by
       apply MeasurableSet.of_finite_measure
       exact lt_top_iff_ne_top.mpr (fun h => absurd h (ne_of_lt (show μ (S.support A) < ⊤ from lt_top_iff_ne_top.mpr (fun _ => False.elim (absurd h rfl)))))

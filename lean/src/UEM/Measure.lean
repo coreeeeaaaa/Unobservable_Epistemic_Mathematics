@@ -6,12 +6,12 @@ import Mathlib.MeasureTheory.Measure.MeasureSpace
 
 Assumptions:
   (S1) (α, μ) is σ-finite.
-  (S2) Π : α → β is measurable.
+  (S2) Pi : α → β is measurable.
   (S3) A ⊆ α is measurable with μ A < ∞.
 
 Conclusions:
-  (C1) Let ν := Measure.map Π μ. Then ν.outer (Π '' A) < ∞.
-  (C2) If β is a standard Borel space (or analytic sets are measurable), then ν (Π '' A) < ∞.
+  (C1) Let ν := Measure.map Pi μ. Then ν.outer (Pi '' A) < ∞.
+  (C2) If β is a standard Borel space (or analytic sets are measurable), then ν (Pi '' A) < ∞.
 
 Dependencies:
   UEM.Structure, UEM.Projection, Mathlib.MeasureTheory
@@ -96,7 +96,7 @@ section SigmaFiniteProjection
 
 open Set
 
-variable {α β : Type*}
+variable {α β : Type _}
 variable [MeasurableSpace α] [MeasurableSpace β]
 variable (Pi : α → β) (μ : Measure α)
 

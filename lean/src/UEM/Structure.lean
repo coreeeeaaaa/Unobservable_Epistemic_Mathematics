@@ -1,6 +1,7 @@
 import Mathlib.Topology.MetricSpace.PseudoMetric
 import Mathlib.Data.Set.Basic
 import Mathlib.Data.Complex.Basic
+import Mathlib.MeasureTheory.Measure.MeasureSpace
 
 /-!
 Formal abstraction of the overlap/projection system described in
@@ -11,8 +12,57 @@ so classical geometric lemmas are available directly from mathlib.
 namespace UEM
 
 open Metric
+open MeasureTheory
 
 universe u v w
+
+/--
+`YeobaekLayeredSpace` formalizes the 삼중 중첩 구조 described in the UEM spec.
+It keeps the internal 잠재 공간 `Internal` as a complex normed space, the 외부
+관측 공간 `External` as a real normed space equipped with a measurable
+structure, and an intermediate 경계 공간 `Boundary`.  The observable region is a
+measurable subset of the external space and every observable/측정 가능한 양은
+이 집합에서만 정의된다는 철학을 반영한다.
+-/
+structure YeobaekLayeredSpace
+    (Internal External Boundary : Type _)
+    [MeasurableSpace Internal] [MeasurableSpace External] [MeasurableSpace Boundary] : Type _ where
+  embedInternal : Internal → External
+  embedBoundary : Boundary → External
+  projectionCR : Internal → External
+  observable : Set External
+  measureExternal : Measure External
+  projection_measurable : Measurable projectionCR
+  boundary_measurable : Measurable embedBoundary
+  observable_measurable : MeasurableSet observable
+  projection_observable : ∀ z, projectionCR z ∈ observable
+  boundary_observable : ∀ b, embedBoundary b ∈ observable
+  internal_hidden : ∀ z, embedInternal z ∉ observable
+
+namespace YeobaekLayeredSpace
+
+variable {Internal External Boundary : Type _}
+variable [MeasurableSpace Internal] [MeasurableSpace External] [MeasurableSpace Boundary]
+
+@[simp]
+theorem projection_in_observable
+    (Λ : YeobaekLayeredSpace Internal External Boundary)
+    (z : Internal) : Λ.projectionCR z ∈ Λ.observable :=
+  Λ.projection_observable z
+
+@[simp]
+theorem boundary_in_observable
+    (Λ : YeobaekLayeredSpace Internal External Boundary)
+    (b : Boundary) : Λ.embedBoundary b ∈ Λ.observable :=
+  Λ.boundary_observable b
+
+@[simp]
+theorem internal_not_observable
+    (Λ : YeobaekLayeredSpace Internal External Boundary)
+    (z : Internal) : Λ.embedInternal z ∉ Λ.observable :=
+  Λ.internal_hidden z
+
+end YeobaekLayeredSpace
 
 structure OverlapSystem where
   Obj : Type u

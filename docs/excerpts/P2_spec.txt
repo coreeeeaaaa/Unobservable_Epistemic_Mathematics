@@ -1,0 +1,25 @@
+P2. Measure-Preserving Flow (Spec §3.4)
+---------------------------------------
+
+Assumptions
+1. Φ : ℝ_{≥ 0} × X → X is jointly measurable in (t, x).
+2. Semigroup law: Φ_{s+t} = Φ_s ∘ Φ_t and Φ_0 = id.
+3. Each Φ_t is a bijection with measurable inverse Φ_{-t}.
+4. Vector field generating Φ is divergence-free on the observable layer (∇ · v = 0).
+5. External measure μ is σ-finite and compatible with the observable region.
+6. Margin set M ⊆ X is measurable with μ(M) > 0.
+
+Goals
+- Prove μ(Φ_t (A)) = μ(A) for all measurable A and all t ≥ 0.
+- Deduce that μ(Φ_t (M)) = μ(M) in particular (margin persistence).
+- Link divergence-free generator to measure-preserving maps via Jacobian = 1.
+
+Obligations
+- Establish measurability of Φ_t for each t.
+- Show that Φ_{-t} acts as the inverse, ensuring mutual measurability.
+- Use divergence = 0 to derive determinant(JΦ_t) = 1 and apply change-of-variables.
+- Provide margin invariance argument using measure-preserving property.
+
+References
+- Spec §3.4, Flow preservation axioms.
+- Appendix A.2, divergence-free generator discussion.

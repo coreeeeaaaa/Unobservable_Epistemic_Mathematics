@@ -25,7 +25,7 @@ open scoped ENNReal
 
 universe u v w
 
-variable {α : Type*} [MeasurableSpace α] (μ : Measure α)
+variable {α : Type _} [MeasurableSpace α] (μ : Measure α)
 variable (S : OverlapSystem) [MeasurableSpace S.Space]
 
 -- P5 Observer structure with parameterized observation

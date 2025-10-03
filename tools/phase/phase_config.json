@@ -1,0 +1,34 @@
+{
+  "P1": {
+    "commands": [
+      {
+        "name": "lake_build",
+        "command": [
+          "bash",
+          "-lc",
+          "lake build"
+        ],
+        "cwd": "lean",
+        "timeout": 600
+      },
+      {
+        "name": "proof_coverage",
+        "command": [
+          "bash",
+          "-lc",
+          "tools/proof_coverage.sh"
+        ],
+        "cwd": ".",
+        "timeout": 120
+      }
+    ],
+    "coverage": {
+      "defs": 0,
+      "theorems": 0,
+      "sorry": 0,
+      "status": "SORRY_FREE"
+    },
+    "sorry_count": 0,
+    "status_message": "P1 verification completed via automated script."
+  }
+}

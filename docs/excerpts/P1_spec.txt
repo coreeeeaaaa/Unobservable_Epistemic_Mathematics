@@ -1,0 +1,45 @@
+# Spec Excerpt — Phase P1 (Projection–Kernel Inequality & Margin Existence)
+
+## Source
+- Spec §3.2 "Projection overlap and residual margin" (UEM 통합 스펙 v1.0)
+- Spec §6.1 "Kernel sub-operator lower bounds"
+
+## Context
+We work on an external measurable space `(α, μ)` arising from the Yeobaek layered
+architecture.  The projection `Π : α → α` collapses internal features back onto
+the observable region.  The kernel sub-operator `K : α → α → ℝ≥0∞` captures the
+coupling between projected samples.
+
+## Assumptions
+1. **Projection measurability**: `Π` is measurable.  The image `Π '' Set.univ` is
+   measurable and satisfies `μ (Π '' Set.univ) < μ Set.univ` (strict loss of
+   measure).
+2. **Observable stability**: the residual set `residual Π := Set.univ \ Π '' Set.univ`
+   lies inside the observable region of the Yeobaek layered space.
+3. **Kernel structure**: `K` is symmetric, positive semidefinite, and each slice
+   `y ↦ K x y` is measurable with `∫⁻ y, K x y ∂μ < ⊤`.  There exists a global lower
+   bound `τ_min > 0` such that `τ_min ≤ ∫⁻ y, K x y ∂μ` for all `x`.
+4. **Auxiliary control**: there is a measurable control function `g` bounding the
+   overlap perimeter contributions as specified in Spec §6.1.
+
+## Target statements
+- **Residual positivity**: `μ (residual Π) > 0`.
+- **Residual non-emptiness**: `residual Π` is non-empty.
+- **Lower bound inequality**: there exists `c > 0` such that for measurable `A`,
+  `B` with finite measure and suitable inclusion hypotheses,
+  `τ_margin μ Π A B ≥ c * (∫⁻ x, ∫⁻ y, K x y ∂μ ∂μ) / (μ A + μ B + 1)`.
+
+## Obligations
+- Formalize the combined projection and kernel hypotheses in Lean.
+- Prove auxiliary lemmas linking the residual measure to the projection image.
+- Establish the kernel integral lower bound using the PSD property and the
+  residual positivity.
+- Combine the lemmas to derive the global lower-bound inequality without `sorry`.
+
+## Deliverables
+- Lean proofs in `lean/src/UEM/YeobaekOverlap.lean` (residual lemmas + main
+  inequality).
+- Updated documentation: `docs/UEM/YeobaekOverlap_plan.md` (plan and assumptions)
+  and release summary for Phase P1.
+- Verification artefacts: `lake build`, `tools/proof_coverage.sh`, and
+  `logs/run/P1_*` logs demonstrating sorry-free status.

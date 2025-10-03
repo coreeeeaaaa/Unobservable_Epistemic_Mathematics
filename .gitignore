@@ -7,6 +7,15 @@ design_docs/
 *_schedule.md
 *_manual.md
 *_plan.md
+agent_reports/
+4_OPERATIONS/
+.internal/
+orchestrator_control/
+systems/
+CLAUDE.md
+GEMINI.md
+AGENTS.md
+reports/
 
 # Context and terminal system files
 .context/
@@ -47,7 +56,3 @@ __pycache__/
 proof_coverage.txt
 
 .lake/
-
-.lake/
-proof_coverage.txt
-

@@ -24,7 +24,7 @@ attribute [simp] ENNReal.zero_le
 attribute [simp] ENNReal.div_self
 
 -- Kernel-specific simp rules
-lemma kernel_symm_simp {α : Type*} [MeasurableSpace α] (K : α → α → ℝ≥0∞)
+lemma kernel_symm_simp {α : Type _} [MeasurableSpace α] (K : α → α → ℝ≥0∞)
   (hK_symm : ∀ x y, K x y = K y x) (x y : α) :
   K x y = K y x := hK_symm x y
 

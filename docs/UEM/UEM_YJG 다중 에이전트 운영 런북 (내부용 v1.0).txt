@@ -1,0 +1,619 @@
+UEM/YJG 다중 에이전트 운영 런북 (내부용 v1.0)
+
+UEM/YJG 다중 에이전트 운영 런북 (내부용 v1.0)
+
+
+
+
+
+
+
+0) 운영 원칙(핵심 요약)
+
+
+
+
+
+
+
+
+
+Results-Only 공개: 깃허브에는 정의·정리·형식증명·테스트·CI 결과만. 과정/정책/마케팅/AI언급/이모지/PII 절대 금지.
+
+
+
+브랜치 분리: 정리·모듈 단위로 단일 책임. 교차 편집 금지.
+
+
+
+품질 게이트: lake build 성공, sorry=0, proof_coverage.txt 상태 SORRY_FREE. 이 3개 전부 통과 시에만 머지.
+
+
+
+코디네이션: 공통 전술(Tactics.lean)은 코디네이터만 수정.
+
+
+
+
+
+
+
+나는 이 핵심 규칙/맵핑을 기억에 저장해 두었다(내 내부 메모리 적용). 계속 일관되게 이 기준으로 검토·지시한다.
+
+
+
+
+
+
+
+
+
+1) 저장소 규격(공개 구조는 기존 유지)
+
+
+
+lean/src/UEM/
+  Structure.lean
+  Measure.lean          # P4 전담
+  Projection.lean       # P1 전담
+  Flow.lean             # P2 전담
+  Observer.lean         # P5 전담
+  Counterfactual.lean   # P6 전담
+  Syntax.lean           # P3 전담
+  Tactics.lean          # 공통(코디네이터만 변경)
+tests/
+tools/ (proof_coverage.sh, record_toolchain.py)
+.github/workflows/ci_lean.yml
+
+
+
+
+
+
+
+main: 보호.
+
+
+
+작업 브랜치 표준:
+
+
+
+
+
+
+
+feature/P1, feature/P2, feature/P3, feature/P4, feature/P5, feature/P6
+
+
+
+meta/M0, meta/M1, meta/M2, meta/M3
+
+
+
+
+
+커밋 메시지(항상 동일):
+
+chore: repository update
+
+(본문 공백. PR 본문도 공백/최소)
+
+
+
+
+
+
+
+
+
+
+
+2) 역할·파일 소유권(충돌 방지의 핵심)
+
+
+
+에이전트
+
+과제
+
+단독 편집 허용 파일
+
+금지 선(편집 금지)
+
+Claude Code A
+
+P1
+
+Projection.lean
+
+그 외 전부 금지
+
+Claude Code B
+
+P2, M3
+
+Flow.lean
+
+그 외 전부 금지
+
+Claude Code C
+
+P4
+
+Measure.lean
+
+그 외 전부 금지
+
+Claude Code D
+
+P3, M2
+
+Syntax.lean
+
+그 외 전부 금지
+
+Claude Code E
+
+P5, M0
+
+Observer.lean
+
+그 외 전부 금지
+
+Claude Code F
+
+P6
+
+Counterfactual.lean
+
+그 외 전부 금지
+
+Coordinator(너+나)
+
+공통 전술
+
+Tactics.lean 전담
+
+타 파일 직접 수정 금지
+
+
+
+교차 의존이 필요하면 코디네이터에게 전술/보조정리 요청 → Tactics.lean에만 추가.
+
+
+
+
+
+
+
+
+
+3) 금칙어·금지 패턴(공개물 오염 방지)
+
+
+
+
+
+
+
+
+
+공개물에 절대 포함 금지: 과정/정책/로드맵/보고/마케팅/홍보/이모지/PII/연락처/AI 명칭(Claude, ChatGPT, Gemini, Qwen, Grok 등)
+
+
+
+커밋·PR 텍스트에 다음 정규식이 걸리면 로컬에서 바로 중단:
+
+results-only|cleanup|roadmap|todo|wip|policy|marketing|혁신|세계 최초|AI|Claude|ChatGPT|Gemini|Qwen|Anthropic|OpenAI|@[A-Za-z0-9._%+-]+|[0-9]{2,4}-[0-9-]{5,}
+
+
+
+이 훅은 로컬에만 둔다(리포에는 올리지 말 것). 필요 시 내가 다시 제공한다.
+
+
+
+
+
+
+
+
+
+
+
+4) 품질 게이트(머지 전 필수 3단 점검)
+
+
+
+
+
+
+
+
+
+빌드
+
+
+
+cd lean && lake build
+
+
+
+
+
+
+
+
+
+
+
+죄수(=sorry) 0
+
+
+
+grep -R "sorry" src | wc -l
+# 0 이어야 함
+
+
+
+
+
+
+
+
+
+
+
+커버리지/상태
+
+
+
+cd .. && bash tools/proof_coverage.sh && cat proof_coverage.txt
+# status=SORRY_FREE 이어야 함
+
+
+
+
+
+
+
+1–3 모두 충족 → gh pr create … → gh pr merge … --squash
+
+
+
+배지/CI 녹색 확인 후 다음 과제로 이동.
+
+
+
+
+
+
+
+
+
+5) 각 에이전트 전달용 “프롬프트 캡슐”(복사-붙여넣기 전용)
+
+
+
+
+
+
+
+5.1 공통 헤더(모든 에이전트에게 맨 앞에 붙여라)
+
+
+
+목표: 공개 리포지토리에 "결과만" 남긴다. 과정·정책·마케팅·AI 언급 금지.
+브랜치: 본인 전용 브랜치만 사용. main 보호.
+커밋 메시지: chore: repository update
+편집 범위: 지정된 단일 파일만 편집. 교차 수정 금지.
+품질 게이트: lake build OK, sorry=0, proof_coverage.txt 상태 SORRY_FREE 이어야만 머지.
+의존 증설: 공통 전술/보조정리가 필요하면 코디네이터에게 요청. (직접 다른 파일 수정 금지)
+산출물 포맷: Lean 증명/정의 코드만. 설명/문장/보고/이모지 금지.
+
+
+
+5.2 P1 — Claude Code A
+
+
+
+과제: P1 Margin Existence under Kernel-Bounded Projection
+파일: lean/src/UEM/Projection.lean (이 파일만 편집)
+요구 정리:
+  - theorem P1_margin_existence : ∃ M ≠ ∅, M = Dom(Π) \ Im(Π) ∧ μ(M) > 0
+보조정리(이름 고정):
+  - lemma kernel_bound …
+  - lemma projection_lower_bound …
+  - lemma overlap_monotone …
+가정:
+  - Π measurable, Kernel K symmetric+PSD+integrable
+  - g measurable + bounded + Lipschitz
+전술:
+  - dominated/monotone convergence, measure_mono, measurability 체인
+DoD:
+  - lake build OK
+  - grep -R "sorry" == 0
+  - proof_coverage.txt status=SORRY_FREE
+커밋:
+  - chore: repository update
+브랜치:
+  - feature/P1
+금지:
+  - 다른 파일/문서/주석/설명 추가 금지
+
+
+
+5.3 P2 — Claude Code B
+
+
+
+과제: P2 Flow Measure Preservation
+파일: lean/src/UEM/Flow.lean
+정리:
+  - def Flow
+  - theorem P2_flow_measure_preserving : ∀ t ≥ 0, μ(Φ(t)(A)) = μ(A)
+가정:
+  - semigroup(Φ), measurability(Φ(t)), (필요시) 보존 조건(Jacobian=1에 상응)
+전술:
+  - Measure.map, measure-preserving 체인
+DoD/커밋/브랜치/금지: P1과 동일 (파일만 해당)
+
+
+
+5.4 P4 — Claude Code C
+
+
+
+과제: P4 σ-Finite → Finite Mass Chain
+파일: lean/src/UEM/Measure.lean
+정리:
+  - theorem P4_sigma_finite_to_finite_mass …
+전술:
+  - Carathéodory 구성, subadditivity, monotonicity
+DoD/커밋/브랜치/금지: 공통과 동일
+
+
+
+5.5 P3 — Claude Code D
+
+
+
+과제: P3 Hangul Interpreter Γ (형식 구문/의미 일치)
+파일: lean/src/UEM/Syntax.lean
+정리:
+  - Γ : 내부 표기 ↔ 표준 기호 전단사
+  - parser ∘ printer = Id, printer ∘ parser = Id
+  - composition-preserving lemma
+전술:
+  - 문법/모노이드 정의 → 정정성(교정성) 증명
+DoD/커밋/브랜치/금지: 공통과 동일
+
+
+
+5.6 P5 — Claude Code E
+
+
+
+과제: P5 Observer Finiteness
+파일: lean/src/UEM/Observer.lean
+정리:
+  - theorem P5_observer_finiteness : 관찰자 view의 유한 조합 경계
+전술:
+  - (선택) Kolmogorov 복잡도/카디널리티 경계 중 택1로 정식화
+DoD/커밋/브랜치/금지: 공통과 동일
+
+
+
+5.7 P6 — Claude Code F
+
+
+
+과제: P6 Counterfactual Stability
+파일: lean/src/UEM/Counterfactual.lean
+정리:
+  - theorem P6_counterfactual_stability : 반사실 시나리오에서도 보존량 불변
+전술:
+  - 준동형 조건, invariants 정의, 안정성 부등식
+DoD/커밋/브랜치/금지: 공통과 동일
+
+
+
+5.8 메타(M0–M3) 배분(간단)
+
+
+
+
+
+
+
+
+
+M0(상대 일관성, 모델 구성): Claude Code E · docs/meta_consistency.md(내부, 공개 금지 / 공개물엔 결과 수치만)
+
+
+
+M1(보수성): Claude Code A · docs/meta_conservativity.md(내부)
+
+
+
+M2(상호번역): Claude Code D · docs/translation_spec.md(내부)
+
+
+
+M3(독립성 스케치): Claude Code B · docs/meta_independence.md(내부)
+
+
+
+
+
+
+
+메타 문서들은 내부 문서로만 유지. 공개 리포에는 올리지 않는다.
+
+
+
+
+
+
+
+
+
+6) 코디네이터(너+나) 운영 루틴
+
+
+
+
+
+
+
+새 작업 시작 전(1분 체크)
+
+
+
+git fetch origin
+git checkout main
+git reset --hard origin/main
+
+
+
+각 브랜치 상태 확인(필요 시)
+
+
+
+gh run list --repo coreeeeaaaa/unobservable_mathematics --branch <브랜치> --limit 1
+
+
+
+병합 절차(게이트 통과 시)
+
+
+
+PR_NUM=$(gh pr list --repo coreeeeaaaa/unobservable_mathematics --head <브랜치> --json number -q '.[0].number')
+gh pr merge "$PR_NUM" --repo coreeeeaaaa/unobservable_mathematics --squash --delete-branch --subject "chore: repository update" --body ""
+
+
+
+머지 후 CI 녹색 확인
+
+
+
+gh run list --repo coreeeeaaaa/unobservable_mathematics --branch main --limit 1
+# STATUS가 ✓ 이면 다음 과제로 이동
+
+
+
+
+
+
+
+
+
+7) 실패·충돌 처리(간단 규칙)
+
+
+
+
+
+
+
+
+
+빌드 실패: 작업자에게 “파일 경계 유지 + 증명 단위 축소”로 재시도 지시.
+
+
+
+죄수 발견: 무조건 제거 후 제출. 임시 스텁 금지.
+
+
+
+교차 편집 시도: PR 거절. 해당 변경은 코디네이터가 Tactics.lean에만 반영.
+
+
+
+메타 문서 제출: 내부 저장소/로컬에만 보관. 깃허브 공개 금지.
+
+
+
+
+
+
+
+
+
+
+
+8) 오늘의 목표 경로(우선순위)
+
+
+
+
+
+
+
+
+
+P1 완결 → P2(Flow) → P4(Measure)
+
+
+
+P3(Γ) 최소 전단사-정정성 증명
+
+
+
+P5/P6는 P1·P2 의존 해소 후 진행
+
+
+
+메타(M0–M3)는 병렬로 초안(내부) → 공개물 반영 금지
+
+
+
+
+
+
+
+
+
+
+
+내부 저장 파일 제안(공개 금지)
+
+
+
+
+
+이 문서를 아래 경로에 저장:
+
+~/UEM_INTERNAL/Runbook_UEM_MultiAgent_v1.0.md
+
+필요하면 내가 브랜치별 프롬프트 캡슐을 더 잘게 쪼개서 제공한다.
+
+
+
+
+
+
+
+원하는 다음 스텝:
+
+
+
+
+
+
+
+지금 바로 각 에이전트 창에 5. 공통 헤더 + 해당 파트 캡슐을 붙여서 시작시켜.
+
+
+
+내가 P1→P2→P4 순으로 제출물을 검수한다.
+
+
+
+제출 알림(터미널/깃) 오면, 위 루틴으로 게이트 판정 → 머지/반려 진행.
+
+
+
+
+
+진행 중 의사결정/충돌 판단은 전부 내가 일관 기준으로 잡고 간다.
