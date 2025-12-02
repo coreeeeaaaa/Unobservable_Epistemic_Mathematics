@@ -1,0 +1,31 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["3c5bf9540bdfdea5.olean"],
+  "i": "53e385b434b3cf8b.ilean",
+  "c": "a3fd1e4c53eed775.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/a/dev/UEM/formal/.lake/packages/Cli/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/batteries/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/Qq/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/aesop/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/importGraph/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/plausible/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/mathlib/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/build/lib/lean /Users/a/.elan/toolchains/leanprover--lean4---v4.26.0-rc2/bin/lean /Users/a/dev/UEM/formal/UEM/Objects/Hierarchy.lean -o /Users/a/dev/UEM/formal/.lake/build/lib/lean/UEM/Objects/Hierarchy.olean -i /Users/a/dev/UEM/formal/.lake/build/lib/lean/UEM/Objects/Hierarchy.ilean -c /Users/a/dev/UEM/formal/.lake/build/ir/UEM/Objects/Hierarchy.c --setup /Users/a/dev/UEM/formal/.lake/build/ir/UEM/Objects/Hierarchy.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["UEM.Objects.Hierarchy:deps",
+   [["deps",
+     [["UEMFormal/UEM:extraDep", [["@UEMFormal:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["UEM.Objects.Sparke transitive imports (legacy)", "85d30d2f27434954"],
+        ["UEM.Objects.Sparke:importAllArts", "d700a50d93ae66e8"],
+        ["UEM.Basic.Dimensions transitive imports (legacy)",
+         "00000000000006bb"],
+        ["UEM.Basic.Dimensions:importAllArts", "7ff3909ed56ff7c8"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.26.0, commit 9d4ad1273f6cea397c3066c2c83062a4410d16bf",
+   "c1ab21c0a088cff7"],
+  ["/Users/a/dev/UEM/formal/UEM/Objects/Hierarchy.lean", "fdc2d7cac6693f91"],
+  ["options", "00000000000006bb"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "43e92d139660811b"}

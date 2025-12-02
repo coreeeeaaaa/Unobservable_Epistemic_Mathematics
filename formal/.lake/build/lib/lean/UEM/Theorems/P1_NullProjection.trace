@@ -1,0 +1,33 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["88f3a640fdf3b370.olean"],
+  "i": "17397680badd99e4.ilean",
+  "c": "56727643e533db93.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/a/dev/UEM/formal/.lake/packages/Cli/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/batteries/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/Qq/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/aesop/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/importGraph/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/plausible/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/mathlib/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/build/lib/lean /Users/a/.elan/toolchains/leanprover--lean4---v4.26.0-rc2/bin/lean /Users/a/dev/UEM/formal/UEM/Theorems/P1_NullProjection.lean -o /Users/a/dev/UEM/formal/.lake/build/lib/lean/UEM/Theorems/P1_NullProjection.olean -i /Users/a/dev/UEM/formal/.lake/build/lib/lean/UEM/Theorems/P1_NullProjection.ilean -c /Users/a/dev/UEM/formal/.lake/build/ir/UEM/Theorems/P1_NullProjection.c --setup /Users/a/dev/UEM/formal/.lake/build/ir/UEM/Theorems/P1_NullProjection.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["UEM.Theorems.P1_NullProjection:deps",
+   [["deps",
+     [["UEMFormal/UEM:extraDep", [["@UEMFormal:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["UEM.Basic.NullProjection transitive imports (legacy)",
+         "00000000000006bb"],
+        ["UEM.Basic.NullProjection:importAllArts", "d9d372894b3593ca"],
+        ["Mathlib.Data.Set.Basic transitive imports (legacy)",
+         "a694a32e9e6315c1"],
+        ["Mathlib.Data.Set.Basic:importAllArts", "ae5c1c9cdee0ff45"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.26.0, commit 9d4ad1273f6cea397c3066c2c83062a4410d16bf",
+   "c1ab21c0a088cff7"],
+  ["/Users/a/dev/UEM/formal/UEM/Theorems/P1_NullProjection.lean",
+   "eb5a121f26df9c0c"],
+  ["options", "00000000000006bb"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "5a184fde9ef8be15"}

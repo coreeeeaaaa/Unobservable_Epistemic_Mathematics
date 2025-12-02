@@ -1,0 +1,75 @@
+import UEM.Basic.DirectSum
+import Mathlib.Algebra.Group.Defs
+
+namespace UEM
+
+variable {V_keep V_null : Type _} [Zero V_keep] [Zero V_null]
+
+/-- Product 공간 V_prod = V_keep × V_null -/
+def V_prod (V_keep : Type _) (V_null : Type _) : Type _ := V_keep × V_null
+
+/-- Nullification Projection: Projects (vk, vn) to vk. -/
+def Pi_null (v : V_prod V_keep V_null) : V_keep := v.1
+
+/-- Inclusion of Keep space -/
+def inc_keep (vk : V_keep) : V_prod V_keep V_null :=
+  (vk, 0)
+
+/-- Inclusion of Null space -/
+def inc_null (vn : V_null) : V_prod V_keep V_null :=
+  (0, vn)
+
+/-- Null projection of keep inclusion is identity. -/
+@[simp] theorem Pi_null_inc_keep_id (vk : V_keep) :
+  Pi_null (inc_keep (V_null:=V_null) vk) = vk := by
+  rfl
+
+/-- Null projection kills null inclusion. -/
+@[simp] theorem Pi_null_inc_null_zero (vn : V_null) :
+  Pi_null (inc_null vn) = (0 : V_keep) := by
+  rfl
+
+/-- Idempotence of Null Projection (lifted to V_prod -> V_prod) -/
+def Pi_null_lift (v : V_prod V_keep V_null) : V_prod V_keep V_null :=
+  (v.1, 0)
+
+@[simp] theorem Pi_null_lift_idempotent (v : V_prod V_keep V_null) :
+ 
+ Pi_null_lift (Pi_null_lift v) = Pi_null_lift v := by
+Bimport UEM.Basic.DirectSum
+import Mathlib.Algebra.Group.Defs
+
+namespace UEM
+
+variable {V_keep V_null : Type _}
+
+/-- Product 공간 V_prod = V_keep × V_null -/
+def V_prod (V_keep : Type _) (V_null : Type _) : Type _ := V_keep × V_null
+
+/-- Nullification Projection: Projects (vk, vn) to vk. -/
+def Pi_null (v : V_prod V_keep V_null) : V_keep := v.1
+
+/-- Inclusion of Keep space -/
+def inc_keep (vk : V_keep) : V_prod V_keep V_null := { fst := vk, snd := (0 : V_null) }
+
+/-- Inclusion of Null space -/
+def inc_null (vn : V_null) : V_prod V_keep V_null := { fst := (0 : V_keep), snd := vn }
+
+/-- Null projection of keep inclusion is identity. -/
+@[simp] theorem Pi_null_inc_keep_id (vk : V_keep) :
+  Pi_null (inc_keep (V_null:=V_null) vk) = vk := by
+  rfl
+
+/-- Null projection kills null inclusion. -/
+@[simp] theorem Pi_null_inc_null_zero (vn : V_null) :
+  Pi_null (inc_null vn) = (0 : V_keep) := by
+  rfl
+
+/-- Idempotence of Null Projection (lifted to V_prod -> V_prod) -/
+def Pi_null_lift (v : V_prod V_keep V_null) : V_prod V_keep V_null := { fst := v.1, snd := (0 : V_null) }
+
+@[simp] theorem Pi_null_lift_idempotent (v : V_prod V_keep V_null) :
+  Pi_null_lift (Pi_null_lift v) = Pi_null_lift v := by
+  rfl
+
+end UEM

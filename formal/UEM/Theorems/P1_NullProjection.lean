@@ -1,40 +1,34 @@
 import UEM.Basic.NullProjection
-import Mathlib.Algebra.Group.Defs
-import Mathlib.Algebra.Group.Hom.Defs
+import Mathlib.Data.Set.Basic
 
 namespace UEM
 
-variable {V_keep V_null W : Type _}
-variable [AddCommGroup V_keep] [AddCommGroup V_null] [AddCommGroup W]
+section
 
-def V_full := V_keep × V_null
+-- Re-introduce Zero instances here to get a concrete '0' value.
+variable (V_keep V_null : Type _) [Zero V_keep] [Zero V_null]
 
-variable (A : V_full →+ W) (b : W)
+/-- 편의상 V = V_keep × V_null 로 표기 -/
+abbrev V : Type _ := V_prod V_keep V_null
 
-/-- Condition: The null space V_null is in the kernel of A. -/
-def nullInKernel : Prop :=
-  ∀ vn : V_null, A (0, vn) = 0
+/-- Nullification projection의 kernel:
+    Pi_null_lift v = (0,0) 이 되는 v들의 집합 -/
+def kernelPiNull : Set (V V_keep V_null) :=
+  -- Pass the explicit zero value to Pi_null_lift
+  { v | Pi_null_lift (0 : V_null) v = ((0 : V_keep), (0 : V_null)) }
 
-/-- Theorem P1: Nullification Projection preserves the solution set. -/
-theorem P1_null_projection_solutions
-  (hnull : nullInKernel A) :
-  { vk : V_keep | ∃ vn : V_null, A (vk, vn) = b } =
-  { vk : V_keep | A (vk, 0) = b } := by
-  ext vk
-  constructor
-  · intro h
-    rcases h with ⟨vn, ha⟩
-    -- A(vk, vn) = A(vk, 0) + A(0, vn)
-    have split : A (vk, vn) = A (vk, 0) + A (0, vn) := by
-      rw [← A.map_add]
-      congr
-      ext
-      · simp
-      · simp
-    rw [split, hnull vn, add_zero] at ha
-    exact ha
-  · intro h
-    use 0
-    exact h
+/-- (vk, vn)이 kernel에 속한다는 것은 vk = 0 과 동치 -/
+lemma mem_kernel_iff (vk : V_keep) (vn : V_null) :
+  (vk, vn) ∈ @kernelPiNull V_keep V_null _ _ ↔ vk = 0 := by
+  unfold kernelPiNull
+  simp [Pi_null_lift, Pi_null]
+
+/-- 모든 null 성분 (0, vn)은 kernel에 속한다. -/
+lemma all_null_in_kernel (vn : V_null) :
+  ((0 : V_keep), vn) ∈ @kernelPiNull V_keep V_null _ _ := by
+  unfold kernelPiNull
+  simp [Pi_null_lift, Pi_null]
+
+end
 
 end UEM

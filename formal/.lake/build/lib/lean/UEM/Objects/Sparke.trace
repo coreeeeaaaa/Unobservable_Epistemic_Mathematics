@@ -1,0 +1,35 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["5feaa659eaac41f9.olean"],
+  "i": "206ad4f7b0efcabe.ilean",
+  "c": "5dcfb18c271128f5.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/a/dev/UEM/formal/.lake/packages/Cli/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/batteries/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/Qq/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/aesop/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/importGraph/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/plausible/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/mathlib/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/build/lib/lean /Users/a/.elan/toolchains/leanprover--lean4---v4.26.0-rc2/bin/lean /Users/a/dev/UEM/formal/UEM/Objects/Sparke.lean -o /Users/a/dev/UEM/formal/.lake/build/lib/lean/UEM/Objects/Sparke.olean -i /Users/a/dev/UEM/formal/.lake/build/lib/lean/UEM/Objects/Sparke.ilean -c /Users/a/dev/UEM/formal/.lake/build/ir/UEM/Objects/Sparke.c --setup /Users/a/dev/UEM/formal/.lake/build/ir/UEM/Objects/Sparke.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "UEM/Objects/Sparke.lean:6:15: `structure ... :=` has been deprecated in favor of `structure ... where`.\n\nNote: This linter can be disabled with `set_option linter.deprecated false`",
+   "level": "warning"}],
+ "inputs":
+ [["UEM.Objects.Sparke:deps",
+   [["deps",
+     [["UEMFormal/UEM:extraDep", [["@UEMFormal:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["Mathlib.Algebra.Group.Defs transitive imports (legacy)",
+         "c9bc16adaeb6d631"],
+        ["Mathlib.Algebra.Group.Defs:importAllArts", "1c558f29436afd47"],
+        ["Mathlib.Data.Set.Basic transitive imports (legacy)",
+         "a694a32e9e6315c1"],
+        ["Mathlib.Data.Set.Basic:importAllArts", "ae5c1c9cdee0ff45"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.26.0, commit 9d4ad1273f6cea397c3066c2c83062a4410d16bf",
+   "c1ab21c0a088cff7"],
+  ["/Users/a/dev/UEM/formal/UEM/Objects/Sparke.lean", "6309181d9631b823"],
+  ["options", "00000000000006bb"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "615169333142e130"}

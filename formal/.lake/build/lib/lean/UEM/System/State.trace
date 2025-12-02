@@ -1,0 +1,31 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["07df456706aab77f.olean"],
+  "i": "2abcdbe8c9c54a78.ilean",
+  "c": "70d1ca1639dc0d26.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/a/dev/UEM/formal/.lake/packages/Cli/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/batteries/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/Qq/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/aesop/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/importGraph/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/plausible/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/packages/mathlib/.lake/build/lib/lean:/Users/a/dev/UEM/formal/.lake/build/lib/lean /Users/a/.elan/toolchains/leanprover--lean4---v4.26.0-rc2/bin/lean /Users/a/dev/UEM/formal/UEM/System/State.lean -o /Users/a/dev/UEM/formal/.lake/build/lib/lean/UEM/System/State.olean -i /Users/a/dev/UEM/formal/.lake/build/lib/lean/UEM/System/State.ilean -c /Users/a/dev/UEM/formal/.lake/build/ir/UEM/System/State.c --setup /Users/a/dev/UEM/formal/.lake/build/ir/UEM/System/State.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["UEM.System.State:deps",
+   [["deps",
+     [["UEMFormal/UEM:extraDep", [["@UEMFormal:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["UEM.Basic.Val transitive imports (legacy)", "5286e187018834d5"],
+        ["UEM.Basic.Val:importAllArts", "ebd4dbf30d138a9a"],
+        ["UEM.Basic.Dimensions transitive imports (legacy)",
+         "00000000000006bb"],
+        ["UEM.Basic.Dimensions:importAllArts", "7ff3909ed56ff7c8"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.26.0, commit 9d4ad1273f6cea397c3066c2c83062a4410d16bf",
+   "c1ab21c0a088cff7"],
+  ["/Users/a/dev/UEM/formal/UEM/System/State.lean", "9c3d6082b7d48fe5"],
+  ["options", "00000000000006bb"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "4a889789b566c269"}
