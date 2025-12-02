@@ -5,17 +5,17 @@ namespace UEM
 
 variable {V_phys : Type _} -- Physical Space (Vector/Tensor)
 
-/-- Epistemic Coordinate System -/
+/-- Epistemic Coordinate System (Simplified) -/
 structure X_rec :=
-  (d1 : Int)          -- Time
-  (d2 : Float)        -- Ontic
-  (d3 : Bool)         -- Logic
-  -- ... other dimensions simplified
+  (d1_time : Int)
+  (d2_ontic : Float)
+  (d3_logic : Bool)
+  -- ... other dimensions abstracted
 
 /-- Total State Space: X_phys × X_rec -/
 structure State (V_phys : Type _) :=
   (phys : V_phys)
   (rec : X_rec)
-  (margin : Unit)     -- Global Margin
+  (margin : Unit) -- Global Margin
 
 end UEM

@@ -5,7 +5,7 @@ namespace UEM
 
 variable {Val : Type _}
 
-/-- Actyon: Set of Sparkes with Agency -/
+/-- Actyon: A set of Sparkes with agency and role. -/
 structure Actyon (Val : Type _) :=
   (sparkes : List (Sparke Val))
   (agent : String)
@@ -13,13 +13,13 @@ structure Actyon (Val : Type _) :=
   (weight : Float)
   (margin : Margin)
 
-/-- Escalade: Dynamics and Flow -/
+/-- Escalade: Dynamics and Flow over time. -/
 structure Escalade (S : Type _) :=
   (flow : S → S)
   (time_domain : Set Int)
   (margin : Margin)
 
-/-- Secare: World and Boundary -/
+/-- Secare: A sub-world with boundaries. -/
 structure Secare (S : Type _) :=
   (sub_world : Set S)
   (boundary : S → Prop)

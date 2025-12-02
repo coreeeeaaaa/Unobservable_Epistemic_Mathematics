@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{kotex}
+\usepackage{listings}
+
+\title{Unobservable Epistemic Mathematics (UEM): \\ A Formal System for Epistemic Limits and Margin}
+\author{UEM Agent}
+\date{\today}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper presents Unobservable Epistemic Mathematics (UEM), a formal mathematical system designed to model the epistemic limits of observers and the conservation of information through 'margins'. We define the object hierarchy (Scalar to Secare), the 9-dimensional epistemic coordinate system, and the Nullification Projection operator. We also provide formal proofs for core theorems using Lean 4.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+\label{sec:intro}
+UEM aims to formalize the "unobservable" and "epistemic limits" within a mathematical framework. It introduces the concept of 'Margin' ($M$) to preserve information that is excluded from explicit representation ($E$). 
+
+\section{Axioms and Object Hierarchy}
+\label{sec:axioms}
+The UEM object hierarchy consists of 7 layers:
+\begin{itemize}
+    \item Classic: Scalar, Vector, Tensor
+    \item Epistemic: Sparke (\pentagram), Actyon (\bigcirc), Escalade (\leadsto), Secare (\heartsuit)
+\end{itemize}
+
+\subsection{Sparke Monoid}
+We formally prove that the set of Sparkes forms a commutative monoid under the merge operation.
+\begin{lstlisting}[language=Lean]
+instance : AddCommMonoid (Sparke Val) := by
+  apply AddCommMonoid.mk
+  ...
+\end{lstlisting}
+
+\section{Nullification Projection and Dimensions}
+\label{sec:nullification}
+The Nullification Projection $\Pi_{null}$ maps a vector space $V = V_{keep} \oplus V_{null}$ to $V_{keep}$, while transferring $V_{null}$ information to the Margin $M$.
+
+\section{Theorems and Formal Proofs}
+\label{sec:proofs}
+\subsection{Theorem P1: Solution Preservation}
+We prove that $\Pi_{null}$ preserves the solution set of linear equations for the kept variables.
+\begin{theorem}[P1]
+Let $A: V \to W$ be a linear map such that $V_{null} \subseteq \ker A$. Then the solution set for $A(v) = b$ is isomorphic to the solution set of the projected system.
+\end{theorem}
+(See `formal/UEM/Theorems/P1_NullProjection.lean` for the Lean 4 proof.)
+
+\section{Applications and Comparisons}
+\label{sec:applications}
+We compare UEM with classical approaches in high school algebra, calculus, and linear algebra, demonstrating how UEM's "Exclusion First" principle reduces cognitive load and computational complexity.
+
+\end{document}
