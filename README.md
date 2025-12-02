@@ -28,6 +28,15 @@ UEM은 **물리적 실재($X_{phys}$) 위에 9차원의 인식 좌표계($X_{rec
 
 ---
 
+## 🚀 Releases
+
+- **v0.1.0 (2025-12-02)**  
+  - Lean formalization: `P1_NullProjection`와 `P2_SparkeMonoid` 모두 `lake build`로 검증 완료.  
+  - `Sparke`의 `AddCommMonoid` 인스턴스에서 `sorry` 제거, 표준 `nsmul` 정의 및 단순 `ext`/`simp` 증명으로 정리.  
+  - 빌드 방법: `cd formal && lake build` (Lean 4.26.0-rc2 toolchain 기준).
+
+---
+
 ## 🛠️ Scope & Definition
 
 **This is NOT**:
