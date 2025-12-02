@@ -1,1 +1,4 @@
 .DS_Store
+/formal/.lake/
+/.lake/
+*.lean.save
