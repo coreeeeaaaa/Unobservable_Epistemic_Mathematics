@@ -390,4 +390,9 @@ State := (phys: X_phys) × (coords: ∏ d, d.coord) × MarginLog
 - HangulOperator: C × V × F → (State → State)
 - ⊗_par: 병렬 연산
 
+### 메타 이론 구조
+- **외부 증명 체계**: Γ-Consv, TR1/TR2는 UEM 외부 메타 이론(ZFC+Large Cardinals 등)에서 증명될 구조
+- **보수성 전이**: UEM 증명 → ZFC 해석 시 보수성 유지 (외부 메타 정리)
+- **순환성 회피**: 메타 정리는 UEM 내부 공리에 의존하지 않는 독립적 체계에서 증명
+
 
