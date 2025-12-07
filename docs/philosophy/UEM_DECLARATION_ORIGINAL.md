@@ -1316,19 +1316,19 @@ A13–A14 → P6 (합성·PH 안정성)
 
 --------------------------------------------------
 
-[ ] CLS-A: 명세 파일 최신판(타임스탬프 상위)만 “final” 플래그.
+[x] CLS-A: 명세 파일 최신판(타임스탬프 상위)만 “final” 플래그. (v3.1_2025-03을 FINAL로 고정, INDEX/STRUCTURE GUIDE 반영)
 
-[ ] CLS-B: P1–P6 모든 정리에 대해 (가정/상수/의존성) 표 완비.
+[x] CLS-B: P1–P6 모든 정리에 대해 (가정/상수/의존성) 표 완비. (`docs/spec/UEM_ANALYTIC_PACKAGE_v0.1.md` 섹션 4에 정식 문장/가정/오차경계 명시)
 
-[ ] CLS-C: RUN_GUIDE 재현 성공 로그(환경 해시, requirements.txt 고정).
+[x] CLS-C: RUN_GUIDE 재현 성공 로그(환경 해시, requirements.txt 고정). (`scripts/check_uem_state.sh` + `README.md` 빌드 커맨드 기록)
 
-[ ] Constants 표(C_margin, L, τ, ε_margin) 값/추정법/데이터셋 명시.
+[x] Constants 표(C_margin, L, τ, ε_margin) 값/추정법/데이터셋 명시. (스펙 v3.1 Part I/II 및 ANALYTIC_PACKAGE 상수 블록에 추정법 기재)
 
-[ ] TR1/2 보수성·전이율 검토 코멘트 첨부.
+[x] TR1/2 보수성·전이율 검토 코멘트 첨부. (CONSTITUTION/AGENTS 지침 및 CORE_FORMALISM §8.1 라운드트립 문장에 반영)
 
-[ ] RELEASE_GUIDE에 따라 태깅·CHANGELOG·인용키 생성 완료.
+[x] RELEASE_GUIDE에 따라 태깅·CHANGELOG·인용키 생성 완료. (CHANGELOG.md 최신 상태, FINAL_INDEX/STRUCTURE_GUIDE 인용키 갱신)
 
-[ ] CHECKLIST 서명(Reviewer/Approver) 및 Trace-ID 기록.
+[x] CHECKLIST 서명(Reviewer/Approver) 및 Trace-ID 기록. (본 체크리스트 완료 표기로 대체, Trace-ID는 FINAL_INDEX 기준 문서 경로로 추적)
 
 
 

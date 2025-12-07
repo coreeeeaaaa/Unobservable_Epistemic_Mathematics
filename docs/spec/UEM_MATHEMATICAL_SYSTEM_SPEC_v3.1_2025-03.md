@@ -12,10 +12,70 @@
 ---
 
 # Part I. Pure Theory: Axioms & Structures
-(v3.0과 동일, 생략)
+
+## I.0 기본 도메인
+- 물리 공간 `X_phys` (위상/측도/선형 구조), 인식 공간 `X_rec` (유한/가변 차원 좌표).
+- 전체 상태 공간 `X_total := X_phys × X_rec`.
+- 상태 `State := (phys : X_phys, rec : X_rec, margin : M)`.
+
+## I.1 객체 계층 (Tensor 불변, UEM 상위 포함)
+- Tensor: Tensor(0)=Scalar, Tensor(1)=Vector, Tensor(n)=n-텐서(기존 연산/기호 변경 없음).
+- Sparke ⛦ (단위 spar): `(X:Tensor(n), support, margin)`, 값 합+support∪+margin 병합.
+- Actyon ㆁ (acti): 유한/가중 Sparke 멀티셋 + agent/role/meta.
+- Escalade 𓂌 (escul): 흐름/동역학 `(f : S→S, time domain, invariants)`.
+- Secare ♡ (seks): 세계/경계/σ-대수/축/여백 컨테이너 `(S_sub, B, Σ, axis, M_sek)`.
+- 포함: Tensor(n) ⊂ Sparke(n) ⊂ Actyon(n) ⊂ Escalade(n) ⊂ Secare(n). 승격/투영은 Tensor 규칙 전파.
+
+## I.2 사영·여백
+- 무력화 사영 `Π_null : V → V_keep`: 선형/멱등, ker/range 보완성 가정.
+- Margin `M`: `annot.margin := Dom(Π) \ Im(Π)`을 기본으로 하며, 여백 로그/엔트로피를 보존.
+- 흐름-사영 교환 목표: `Π_null ∘ f = f_keep ∘ Π_null` (조건부, Secare 내부 규칙에 따름).
+
+## I.3 세계(Secare)
+- ♡ = `(S_sub ⊆ X_total, B(경계/Archive), Σ(σ-대수/축), axis, M_sek)`.
+- 경계 안정성: 삭제 금지, Archive 이동 규칙; 축 병합/충돌 처리 규칙을 명시.
+
+## I.4 한글 연산자 Γ (초병렬)
+- 음절 σ = (C,V,F,I) ∈ 초성×중성×종성×Index, 해석 Γ: (C,V,F,I) ↦ Op : State→State.
+- 합성: `J(C,V,F)(X) = A_F(V(C(X)))` (병렬 레지스터 병합 규칙을 따름).
+- 병렬 ⊗_par: 결합성/단위원(e_par 유무)/충돌해결 규칙을 모노이달 여부까지 명시.
+- 다방향 ∇_hangul: `∇_hangul f := ⊗_par { ∂_γ f | γ ∈ Γ-basis }`; HS 축소판 별도.
+- LUT/금지 조합/에러 코드/Γ 공리(Γ-Total/NF/Closed/Type/Consv)는 별도 스펙(`HANGUL_OPERATORS_SPEC_v0.1.md`)에 따른다.
+
+## I.5 공리/원칙 (요약)
+1) Tensor 불변: 기존 선형대수/텐서 연산을 변경하지 않는다.  
+2) 포함/승격: Tensor→⛦→ㆁ→𓂌→♡ 계층, rank/axis는 규칙에 따라 보존.  
+3) 사영/여백: Π_null 멱등·보완, margin은 여백 로그로 보존.  
+4) 세계/경계: ♡ 내부에서만 연산·관측, 경계/Archive 규칙 준수.  
+5) Γ-총합: 합법 (C,V,F) 조합은 well-typed Op를 만든다(금지 조합 제외).  
+6) 흐름-사영 호환: Escalade 흐름은 명시된 조건에서 Π_null와 교환.
 
 # Part II. Dimensions & Interface (인식 차원계)
-(v3.0과 동일, 생략)
+
+## II.0 기본 틀
+- 차원 곱공간: `X_total = X_phys × X_rec`.  
+  - `X_phys`: 물리/기하 좌표(연속/불연속 가능).  
+  - `X_rec`: 인식 좌표(모달/논리/시간/측도/에이전시/온틱/표상/한계 등).
+- 렌즈/투영: 물리 투영 `π_phys`, 인식 투영 `π_rec`, 무력화 사영 `Π_null`은 Secare 규칙을 따른다.
+
+## II.1 인식 차원 (예시 스케치, v3.1에서 구체화)
+- 시간(Time), 온틱(Ontic: [0,1] 구간), 논리(다치/모달), 모달(Modality: (W,R,V)), 에이전시(Agent/Role 집합), 표상/한계(Repr/Limit), 가능/여백(Loss/Margin) 등 9축 설계.  
+- 각 축은 Coord d : Type으로 선언, X_rec = Π d, Coord d.
+
+## II.2 호환 규칙
+- 객체 계층(⛦~♡)는 `X_total` 위에서 정의되고, Secare가 차원/축/σ-대수를 고정한다.
+- 차원 독립성/업데이트 렘마(정리 목표): 한 차원의 업데이트가 다른 차원에 간섭하지 않는 조건을 명문화(Part IV 증명 대상).
+- 사영/축소 시: 여백 로그(Margin)로 손실 기록, L_proj 등 손실 메트릭은 Part I/III에 연동.
+
+## II.3 인터페이스
+- 관측: 관측 σ-대수 `𝔽_obs ⊂ Σ`를 지정, 관측 동치류로 `S_obs` 구성.  
+- 표현 정리 목표: 조건 하에 `S ≅ S_obs × N` 분해(비관측 자유도 N), Π_null는 S→S_obs 사영, N은 여백으로 보존.
+
+## II.4 체크리스트
+- 차원 정의 본문화(각 Coord d 구조/연산/호환).  
+- Secare 6축(존재/비존재/무존재/반존재/공백/여백) 정의와 차원 연동.  
+- 사영/차원 독립성/업데이트 정리 문장 고정.  
+- 손실/여백 메트릭(L_proj, I_total=I_keep+I_margin) 차원 연동.
 
 ---
 
