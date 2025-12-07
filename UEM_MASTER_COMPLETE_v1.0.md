@@ -150,7 +150,7 @@ Secare := (S_sub, B(경계), Σ(σ-대수), axis, margin)
 J(C,V,F)(X) = A_F(V(C(X)))
 ```
 
-### 5.3 연산자 의미 (완전 LUT)
+### 5.3 연산자 의미 (전체 LUT)
 
 #### 초성(C) - 구조 조작
 | 자음 | 의미 | 수학 연산 |
@@ -286,7 +286,7 @@ J(C,V,F)(X) = A_F(V(C(X)))
    - pythagoras_projection: Hilbert 공간 피타고라스 정리
 
 2. **P2_SparkeMonoid** (`formal/UEM/Theorems/P2_SparkeMonoid.lean`)
-   - AddCommMonoid 인스턴스 완전 증명
+   - AddCommMonoid 인스턴스 증명 완료
    - add_assoc, zero_add, add_zero, add_comm
    - nsmul 자연수 곱 정의와 성질
 
@@ -315,7 +315,7 @@ J(C,V,F)(X) = A_F(V(C(X)))
 #### 분석 패키지 (13개)
 - μ_unobs 정칙성/σ-유한성
 - KM-1~3 구체적 상수와 증명
-- P2~P6 완전한 정리 문장
+- P2~P6 상세한 정리 문장
 - SCD/AHS 존재/유일/안정 정리
 
 ### 7.3 Lean 구현 목표 구조

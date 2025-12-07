@@ -194,7 +194,7 @@ variable {A B C D}        -- 일반적 변수
 /-!
 # UEM.Objects.Sparke
 
-Sparke 객체는 UEM에서 가장 기본적인 단위 객체이다.
+Sparke 객체는 UEM에서 기본적인 단위 객체 중 하나이다.
 Tensor(n)를 support와 margin으로 확장한 구조이다.
 
 ## 주요 정의
