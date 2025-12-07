@@ -11,7 +11,7 @@ A formal specification of the Unobservable Epistemic Mathematics (UEM) mathemati
 5. [한글 연산자](#5-한글-연산자)
 6. [분석 패키지](#6-분석-패키지)
 7. [구현 증명 상태](#7-구현-증명-상태)
-8. [개발 로드맵](#8-개발-로드맵)
+8. [Formal Implementation Status](#8-formal-implementation-status)
 
 ---
 
@@ -360,17 +360,17 @@ structure Actyon where
 - **Object hierarchy**: Tensor → Sparke → Actyon → Escalade → Secare
 - **Mathematical foundation**: ZFC compatibility requirements
 
-### 8.3 Remaining Work Items
+### 8.3 Unproven Conjectures
 
-**Core theorem proofs**:
+**Core conjectures**:
 - P3_ActyonStability: Flow-projection commutativity
 - P4_DimensionCoherence: Dimensional consistency
 - Object hierarchy axioms: Rank/axis preservation
 
-**Mathematical foundations**:
+**Mathematical conjectures**:
 - μ_unobs measure: Regularity and σ-finiteness
 - Kernel-Margin-PH inequalities: KM-1 through KM-3
-- ZFC round-trip consistency proofs
+- ZFC round-trip consistency statements
 
 
 ---
