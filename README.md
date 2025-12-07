@@ -1,5 +1,9 @@
 # 비관측 인식수학 (UEM: Unobservable Epistemic Mathematics)
 
+> 작업 시작 전 반드시 `MANDATORY_ONBOARDING.md`를 읽고 규칙을 따른다. (축약 금지·AGENTS 지침·필수 문서 경로·빌드/검증 절차)
+> 공통 헌법: `CONSTITUTION.md` (모든 에이전트/개발자 공통 규칙)
+> 총괄 백서: `UEM_STRUCTURE_GUIDE_v0.1.md` (루트, 강제 읽기 / 삭제 금지 / 수정 시 버전 관리·추가만)
+
 > *자기가 아닌 것들의 공백 어딘가에 자아가 있다.*
 > *그 어딘가가 어딘지는 알 수 없다.*
 > *자아는 서술할 수 없고, 증명할 수 없고, 다만 인식할 수 있을 뿐이다.*
@@ -10,16 +14,23 @@
 
 ---
 
-## 📜 Mathematical System Specification v3.1 (2025-03)
+## 📜 UEM Master Complete v1.0 (2025-12-08)
 
-UEM은 **물리적 실재($X_{phys}$) 위에 9차원의 인식 좌표계($X_{rec}$)를 얹어, 존재와 인식을 통합적으로 기술하는 것을 지향하는 독립된 수리논리 체계**입니다.
+UEM(Unobservable Epistemic Mathematics)은 **비관측 가능한 것의 인식 가능성을 수학적으로 정형화하는 독립된 수리논리 체계**입니다. 물리적 실재(X_phys) 위에 9차원 인식 좌표계(X_rec)를 구축하여 존재와 인식을 통합적으로 기술합니다.
 
-본 저장소는 특정 응용 프로그램이나 알고리즘을 위한 것이 아니며, **순수한 수학적 정의, 공리계, 그리고 증명**을 기록하기 위한 아카이브입니다.
+### 📘 핵심 문서
+- **[UEM_MASTER_COMPLETE_v1.0.md](UEM_MASTER_COMPLETE_v1.0.md)**: 통합 백서 (437라인)
+  - 전체 철학, 수학적 틀, 객체 계층, 한글 연산자 포함
+- **[UEM_MATHEMATICAL_SYSTEM_SPEC_v3.1_2025-03.md](docs/spec/UEM_MATHEMATICAL_SYSTEM_SPEC_v3.1_2025-03.md)**: 핵심 수학 스펙
+  - Part I: 순수 이론 (Sparke~Secare 객체 대수)
+  - Part II: 9차원 인식 좌표계
+  - Part III: 무력화 사영 증명
 
-### [📘 UEM System Specification v3.1](docs/spec/UEM_MATHEMATICAL_SYSTEM_SPEC_v3.1_2025-03.md)
-- **Part I. Pure Theory**: Sparke, Actyon, Escalade, Secare 객체 대수 및 공리계.
-- **Part II. Dimensions**: 9대 인식 차원($d_1 	 d_9$)과 곱공간 구조 ($X_{UEM} = X_{phys} 	 X_{rec}$). 
-- **Part III. Proof of Concept**: 무력화 사영($	_{null}$)을 통한 정보 처리의 구조적 정합성 탐색.
+### 🔧 Lean 4 형식화
+- **[Foundations](formal/UEM/Foundations/)**: 증명 가능한 기초 구조
+  - State 공간, 차원 독립성, 여백 사영, 한글 연산자
+- **[Theorems](formal/UEM/Theorems/)**: 증명된 핵심 정리
+  - P1_NullProjection, P2_SparkeMonoid 완성
 
 ### [📕 UEM Advanced Applications v1.0](docs/examples/UEM_ADVANCED_APPLICATIONS_v1.0.md)
 - **Quantum Entanglement**: 비국소성을 인식적 연결성($d_4$)과 여백화($	_{null}$)로 해석하는 관점 제시.
