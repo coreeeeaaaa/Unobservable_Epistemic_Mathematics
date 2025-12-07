@@ -10,13 +10,13 @@
 
 ---
 
-## 📜 Mathematical System Specification v3.0
+## 📜 Mathematical System Specification v3.1 (2025-03)
 
 UEM은 **물리적 실재($X_{phys}$) 위에 9차원의 인식 좌표계($X_{rec}$)를 얹어, 존재와 인식을 통합적으로 기술하는 것을 지향하는 독립된 수리논리 체계**입니다.
 
 본 저장소는 특정 응용 프로그램이나 알고리즘을 위한 것이 아니며, **순수한 수학적 정의, 공리계, 그리고 증명**을 기록하기 위한 아카이브입니다.
 
-### [📘 UEM System Specification v3.0](docs/spec/UEM_MATHEMATICAL_SYSTEM_SPEC_v3.0.md)
+### [📘 UEM System Specification v3.1](docs/spec/UEM_MATHEMATICAL_SYSTEM_SPEC_v3.1_2025-03.md)
 - **Part I. Pure Theory**: Sparke, Actyon, Escalade, Secare 객체 대수 및 공리계.
 - **Part II. Dimensions**: 9대 인식 차원($d_1 	 d_9$)과 곱공간 구조 ($X_{UEM} = X_{phys} 	 X_{rec}$). 
 - **Part III. Proof of Concept**: 무력화 사영($	_{null}$)을 통한 정보 처리의 구조적 정합성 탐색.
