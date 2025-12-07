@@ -1,7 +1,5 @@
-# UEM Master Complete v1.0: 통합 전체 사양서
-> **목적**: UEM(비관측 인식수학)의 모든 설계, 명세, 철학, 구현을 하나의 문서로 통합
-> **상태**: v1.0 통합본 (최신 스펙 v3.1, 설계 v1.0, 구현 진행중)
-> **사용법**: 이 문서를 통해 UEM 전체를 이해하고, 세부 분석은 각 참조 파일로
+# UEM System Specification v1.0
+A formal specification of the Unobservable Epistemic Mathematics (UEM) mathematical system.
 
 ---
 
@@ -351,88 +349,45 @@ structure Actyon where
 
 ---
 
-## 8. 개발 로드맵
+## 8. Implementation Status
 
-### 8.1 현재 상태 (v1.0 기준)
-- **설계 완성도**: 80%
-- **증명 완료도**: 4% (2/50+)
-- **형식화**: 기본 스켈레톤 완성
-- **문서 체계**: 완벽한 구조화
+### 8.1 Formal Proofs
+- **Proven theorems**: P1_NullProjection, P2_SparkeMonoid
+- **Unproven theorems**: P3-P6, KM-1~3, and core object operations
+- **Formalized definitions**: State space, 9-dimensional coordinates, basic operators
+### 8.2 Logical Dependencies
+- **Core dependencies**: P1, P2 → P3-P4 → KM-1~3
+- **Object hierarchy**: Tensor → Sparke → Actyon → Escalade → Secare
+- **Mathematical foundation**: ZFC compatibility requirements
 
-### 8.2 단계적 고도화 계획
+### 8.3 Remaining Work Items
 
-#### Phase 1: 수학적 기반 구축 (0→30%)
-1. **9차원 구체화**: 각 차원의 위상/측도/대수 구조 정의
-2. **차원 간 관계**: 독립성/교환성/결합 법칙 증명
-3. **객체 계층**: 랭크/축 보존/변환 규칙 수학적 증명
+**Core theorem proofs**:
+- P3_ActyonStability: Flow-projection commutativity
+- P4_DimensionCoherence: Dimensional consistency
+- Object hierarchy axioms: Rank/axis preservation
 
-#### Phase 2: 한글 연산자 완성 (30→50%)
-1. **LUT 확정**: C/V/F 전체 매핑 테이블 완성
-2. **대수 구조**: ⊗_par/∇_hangul 공리/정리 증명
-3. **Lean 매핑**: 한글→Lean 완전 매핑 테이블
+**Mathematical foundations**:
+- μ_unobs measure: Regularity and σ-finiteness
+- Kernel-Margin-PH inequalities: KM-1 through KM-3
+- ZFC round-trip consistency proofs
 
-#### Phase 3: 분석 패키지 증명 (50→70%)
-1. **μ_unobs**: 정의와 정칙성/σ-유한성 증명
-2. **KM-1~3**: 구체적 상수와 조건 하에서 증명
-3. **P2~P6**: 완전한 정리 문장과 Lean 증명
-
-#### Phase 4: 고차 증명 (70→90%)
-1. **UEM↔ZFC**: 라운드트립/보수성/무모순성 증명
-2. **사례 확장**: 삼체/터널링/난류 등 구체적 증명
-3. **응용 연결**: 물리/논리/계산 과학 응용 증명
-
-#### Phase 5: 교육 시스템 (90→100%)
-1. **교재 집필**: 12개 수학 분과별 전공 교재
-2. **도구 개발**: 시각화/계산/분석 도구킷
-3. **평가 체계**: 지식/문제해결 능력 평가 시스템
-
-### 8.3 즉시 실행 가능 TODO (단기)
-
-#### 증명 완료 (1-2주)
-1. **P3-P4**: 흐름-사영 교환, 차원 정합성 정리
-2. **차원 lemma**: X_rec 독립성/교환성 증명
-3. **객체 불변량**: AddCommMonoid/SMul 보존 증명
-
-#### 설계 정교화 (2-4주)
-1. **C/V/F LUT**: 전체 자모 매핑 테이블 확정
-2. **충돌 규칙**: ⊗_par resolve 규칙 구체화
-3. **MarginLog**: 정확한 포맷과 갱신 규약
-
-#### Lean 확장 (4-8주)
-1. **sorry 제거**: 핵심 50개 sorry 증명 완료
-2. **trusted axiom 제거**: MetaRules 정의/정리로 재구성
-3. **매핑 테이블**: 스펙 기호 ↔ Lean 이름 완전 매핑
 
 ---
 
-## 부록: 참조 파일 인덱스
+## 정의 및 공리
 
-### 핵심 스펙
-- `docs/spec/UEM_MATHEMATICAL_SYSTEM_SPEC_v3.1_2025-03.md` - 주요 스펙
-- `docs/spec/UEM_CORE_FORMALISM_v0.1.md` - 수학·논리 핵심
-- `docs/spec/UEM_OBJECT_HIERARCHY_SPEC_v0.1.md` - 객체 계층
-- `docs/spec/HANGUL_OPERATORS_SPEC_v0.1.md` - 한글 연산자
+### 기본 도메인
+- X_phys: 표준 Borel 공간
+- X_rec: 9차원 인식 좌표계
+- X_total: X_phys × X_rec
 
-### 설계 청사진
-- `docs/blueprint/UEM_BLUEPRINT_v1.md` - 전체 청사진
-- `docs/blueprint/THEOREM_STATEMENTS.md` - 정리 문장
-- `docs/blueprint/TODO_DEPTH.md` - 증명 TODO
-- `docs/blueprint/FINAL_INDEX.md` - 문서 인덱스
+### State 구조
+State := (phys: X_phys) × (coords: ∏ d, d.coord) × MarginLog
 
-### 구현 코드
-- `formal/UEM.lean` - 전체 import
-- `formal/UEM/Theorems/P1_NullProjection.lean` - 완료된 증명
-- `formal/UEM/Theorems/P2_SparkeMonoid.lean` - 완료된 증명
-- `formal/UEM/Objects/` - 객체 정의
+### 주요 연산자
+- Π_null: 무력화 사영
+- HangulOperator: C × V × F → (State → State)
+- ⊗_par: 병렬 연산
 
----
 
-## 버전 기록
-- **v1.0** (2025-12-08): 최초 통합본 완성
-- **v0.9** (2025-12-07): 설계 분석 완료
-- **v0.8** (2025-12-06): 문서 체계화 완료
-- **v0.1** (2025-03): 기본 스펙 v3.1 완성
-
----
-
-*이 통합본은 지속적으로 업데이트되며, 최신 버전은 항상 이 파일이 됩니다. 세부 내용은 각 참조 파일을 확인하세요.*
