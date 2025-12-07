@@ -1,9 +1,13 @@
 import UEM.Basic.Val
 import UEM.Basic.DirectSum
 import UEM.Basic.NullProjection
+import UEM.Basic.Margin
 import UEM.Basic.Dimensions
 import UEM.Objects.Sparke
 import UEM.Objects.Hierarchy
+import UEM.Objects.Extended
 import UEM.System.State
+import UEM.System.Graph
 import UEM.Theorems.P1_NullProjection
 import UEM.Theorems.P2_SparkeMonoid
+import UEM.Cases.Skeletons
