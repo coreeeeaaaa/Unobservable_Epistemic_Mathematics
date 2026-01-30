@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Unobservable Epistemic Mathematics (UEM) — Pure Mathematics Core"
+version: "0.1"
+doi: ""
+authors:
+  - family-names: "Gye Sun-ryang"
+    given-names: "Gye"
+    name: "Gye Sun-ryang (계선량)"
+    affiliation: "core-ea"
+date-released: "$(date +%F)"
