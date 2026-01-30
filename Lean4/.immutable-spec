@@ -1,0 +1,22 @@
+# UEM Immutable Spec Files (절대 변경 금지)
+
+## 불변 스펙 파일 (Immutable Specification)
+UemProofs/UEM/UEM_Calculus.lean
+├── Choseong/Jungseong/Jongseong inductive 정의 (lines 199-285)
+├── CMap 정의 (lines 293-336)
+├── VMap 정의 (lines 337-351)
+├── FMap 정의 (lines 352-378)
+└── FPrimary 정의 (lines 286-300)
+
+UemProofs/UEM/UEM_HangulMatrix.lean
+├── CClassOf/VClassOf/FClassOf 분류 (lines 14-107)
+├── DomPred/LogicPred/CodPred 술어 정의 (lines 109-121)
+└── MatrixRel 관계 정의 (lines 123-143)
+
+## 불변 영역 해시 (SPEC_HASH)
+Generated: 2026-01-28 04:32 KST
+Tool: sha256sum
+
+[현재 상태: 초기화 필요]
+88fe4b8389377a052e90a5a661c92a9785b17db532887c01ce2d7e22bbb54b20  UemProofs/UEM/UEM_Calculus.lean
+3dac04545e22d2dbebec3d6ddc4a9cd7c0452fee1442086bbdd0f1f1184ca01a  UemProofs/UEM/UEM_HangulMatrix.lean

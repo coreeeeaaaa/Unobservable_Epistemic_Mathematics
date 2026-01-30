@@ -1,0 +1,13 @@
+/.lake
+
+# 작업 관리 파일 (로컬 전용 - GitHub에는 올리지 않음)
+D1_*.md
+D1_*.lean
+UEM_PROGRESS.md
+WORKING_*.md
+DEBUG_*.md
+TEMP_*.md
+
+# macOS
+.DS_Store
+**/.DS_Store

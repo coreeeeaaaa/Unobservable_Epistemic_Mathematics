@@ -1,0 +1,38 @@
+# Lean 4 build artifacts
+.lake/
+*.olean
+*.ilean
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+.claude/
+# Internal Management Documents (Private)
+UEM_D1-D10_ACTUAL_PROOF_FINAL_REPORT*.md
+UEM_PROOF_STATUS_CHECKLIST*.md
+PROGRESS_LOG.md
+# Meta_Log (Internal Management Log)
+Meta_Log/
