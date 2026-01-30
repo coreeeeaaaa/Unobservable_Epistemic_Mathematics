@@ -24,6 +24,7 @@ venv/
 
 # Logs
 *.log
+Lean4/.build_logs/
 
 # Temporary files
 *.tmp
@@ -36,3 +37,7 @@ UEM_PROOF_STATUS_CHECKLIST*.md
 PROGRESS_LOG.md
 # Meta_Log (Internal Management Log)
 Meta_Log/
+
+# Local Lean tooling artifacts
+Lean4/.github/
+Lean4/lake-manifest.json
