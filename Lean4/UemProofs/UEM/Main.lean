@@ -11,6 +11,7 @@ import UemProofs.UEM.UEM_HangulMatrix
 import UemProofs.UEM.UEM_HangulCardinality
 import UemProofs.UEM.UEM_HangulDirection
 import UemProofs.UEM.UEM_ObservedSubcategory
+import UemProofs.UEM.UEM_CartesianProduct
 import UemProofs.UEM.UEM_Conservativity
 import UemProofs.UEM.UEM_Extensions.UEM_ProjectionGeometry
 import UemProofs.UEM.UEM_Extensions.UEM_SCD_AHS

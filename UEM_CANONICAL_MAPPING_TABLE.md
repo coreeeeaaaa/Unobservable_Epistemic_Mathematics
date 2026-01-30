@@ -53,3 +53,4 @@ All public docs align with Lean symbols in this repository.
 | Result | Lean Theorem(s) | File |
 |---|---|---|
 | Observed fragment as full & faithful inclusion | `observedInclusion` (Full, Faithful) | `Lean4/UemProofs/UEM/UEM_ObservedSubcategory.lean` |
+| Cartesian product universal property | `fstOp_comp_lift`, `sndOp_comp_lift`, `lift_unique` | `Lean4/UemProofs/UEM/UEM_CartesianProduct.lean` |
