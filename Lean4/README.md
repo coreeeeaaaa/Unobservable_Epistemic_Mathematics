@@ -1,4 +1,3 @@
 # UEM Formal Proofs (Lean)
 
-This directory contains formal proofs of the UEM core.
-No application or system documentation is included here.
+This directory contains only formal proofs and core definitions.

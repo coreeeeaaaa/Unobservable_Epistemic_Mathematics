@@ -17,7 +17,7 @@ $$\exists! \, \mathcal{O}: \forall \text{UEM-theorems } \tau, \, \tau \in \text{
 
 *이 섹션은 수학적 증명의 본질과는 무관한 철학적 표현입니다.*
 
-본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **정보 이론적 엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
+본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
 
 $$\text{개구리} = \text{UEM} \iff H(\text{개구리}) = H(\text{UEM})$$
 
@@ -139,7 +139,7 @@ $$\delta_{proj}(\Pi) = \sup_{\|X\| \leq 1} \|X_{keep}\|$$
 
 ### **Step 7: Define the margin error**
 
-The **margin error** $\epsilon_{margin}(\Pi)$ quantifies the "lost" information in the null subspace:
+The **margin error** $\epsilon_{margin}(\Pi)$ quantifies the "lost" measure in the null subspace:
 
 $$\epsilon_{margin}(\Pi) := \sup_{\|X\| \leq 1} \|X_{null}\| \cdot \text{dist}(X_{null}, V_{keep})$$
 
@@ -205,7 +205,7 @@ $$\boxed{|O_{proj}(\Pi, K, X, Y) - O_K(X, Y)| \leq \delta_{proj}(\Pi) + \epsilon
 ###  UEM 철학적 정합성
 
 - **Null Projection**: $V_{null}$로의 사영에 의한 overlap 보존
-- **여백 정보 손실**: $\delta_{proj} + \epsilon_{margin}$로 정량화
+- **여백 측도 손실**: $\delta_{proj} + \epsilon_{margin}$로 정량화
 - **FOUNDATIONS v1.0과 부합**: Projection에 의한 overlap 변화 bound
 
 ---

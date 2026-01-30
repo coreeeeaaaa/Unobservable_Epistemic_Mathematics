@@ -17,7 +17,7 @@ $$\exists! \, \mathcal{O}: \forall \text{UEM-theorems } \tau, \, \tau \in \text{
 
 *이 섹션은 수학적 증명의 본질과는 무관한 철학적 표현입니다.*
 
-본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **정보 이론적 엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
+본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
 
 $$\text{개구리} = \text{UEM} \iff H(\text{개구리}) = H(\text{UEM})$$
 
@@ -158,20 +158,6 @@ $$d_GH(X, Y) < \epsilon \implies PH_k(\text{Margin}(X)) \cong PH_k(\text{Margin}
 - 여백(margin)은 "robust"한 topological structure를 가짐
 - Small change가 있어도 essential features are preserved
 - 이것이 UEM의 핵심: 여백은 파괴되지 않고 보존됨
-
----
-
-## 6. References
-
-1. Cohen-Steiner, D., Edelsbrunner, H., & Morjan, J. (2007). "Stability of persistence diagrams". *Discrete & Computational Geometry*, 37(1), 103-120.
-
-2. Edelsbrunner, H., & Harer, J. (2010). *Computational Topology: An Introduction*. American Mathematical Society.
-
-3. Gromov, M. (1981). "Groups of polynomial growth and expanding maps". *Publications Mathématiques de l'IHÉS*, 53, 53-73.
-
-4. Zomorodian, A. (2005). *Topology for Computing*. Cambridge University Press.
-
-5. Oudot, S. Y. (2015). *Persistence Theory: From Quiver Representations to Data Analysis*. American Mathematical Society.
 
 ---
 

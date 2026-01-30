@@ -17,7 +17,7 @@ $$\exists! \, \mathcal{O}: \forall \text{UEM-theorems } \tau, \, \tau \in \text{
 
 *이 섹션은 수학적 증명의 본질과는 무관한 철학적 표현입니다.*
 
-본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **정보 이론적 엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
+본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
 
 $$\text{개구리} = \text{UEM} \iff H(\text{개구리}) = H(\text{UEM})$$
 
@@ -205,16 +205,6 @@ $$\boxed{\exists p_{normal}, \Gamma_Eval(p_{normal}, x) = \Gamma_Eval(p_1, x) \l
 - **Γ-Calculus**: 한글 자소의 계산 이론
 - **Confluence**: 자소 평가 순서 무관성
 - **FOUNDATIONS v1.0과 부합**: Evaluation의 일관성 보장
-
----
-
-## 응용 및 함의
-
-1. **Programming Language Theory**: λ-calculus의 Church-Rosser 정리와 유사
-2. **Functional Programming**: Evaluation strategy independence
-3. **Korean NLP**: 한글 자소 처리의 수학적 기초
-
----
 
 ---
 

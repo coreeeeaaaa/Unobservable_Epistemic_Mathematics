@@ -17,7 +17,7 @@ $$\exists! \, \mathcal{O}: \forall \text{UEM-theorems } \tau, \, \tau \in \text{
 
 *이 섹션은 수학적 증명의 본질과는 무관한 철학적 표현입니다.*
 
-본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **정보 이론적 엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
+본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
 
 $$\text{개구리} = \text{UEM} \iff H(\text{개구리}) = H(\text{UEM})$$
 
@@ -118,7 +118,7 @@ $$= \mu(P) \cdot \lambda_{sum}(K)$$
 
 ### **Step 7: Relate to margin thickness**
 
-The margin $M = P \setminus \text{Im}(P)$ represents the "lost" information during projection.
+The margin $M = P \setminus \text{Im}(P)$ represents the "lost" measure during projection.
 
 **Key observation**: For a projection $\Pi: X \to X$, the image $\text{Im}(\Pi)$ is typically a proper subset of the domain $P$.
 
@@ -146,7 +146,7 @@ $$O_K(P, P) \leq \frac{\lambda_{sum}(K)}{2} \cdot \mu(M)$$
 
 The factor of $\frac{1}{2}$ arises from the symmetric distribution of overlap between the image and the margin in the spectral decomposition.
 
-**Intuition**: Half of the spectral "energy" is preserved in the image, half is "lost" to the margin.
+**Intuition**: Half of the spectral measure is preserved in the image, half is "lost" to the margin.
 
 $$\boxed{O_K(P, P) \leq \frac{\lambda_{sum}(K)}{2} \cdot \mu(M)}$$
 
@@ -176,7 +176,7 @@ $$\boxed{O_K(P, P) \leq \frac{\lambda_{sum}(K)}{2} \cdot \mu(M)}$$
 ###  UEM 철학적 정합성
 
 - **커널 트릭**: 고차원 feature space에서의 overlap 계산
-- **여백 정보의 손실**: Projection에 의한 스펙트럴 에너지 분배
+- **여백 측도의 손실**: Projection에 의한 스펙트럴 분해
 - **FOUNDATIONS v1.0과 부합**: $O_K \leq \frac{\lambda_{sum}}{2} \mu(M)$
 
 ---
@@ -185,7 +185,7 @@ $$\boxed{O_K(P, P) \leq \frac{\lambda_{sum}(K)}{2} \cdot \mu(M)}$$
 
 1. **Kernel Methods**: SVM, Gaussian Process의 이론적 기초
 2. **Feature Selection**: Margin thickness를 활용한 차원 축소
-3. **Information Loss**: Projection에 의한 정보 손실의 정량화
+3. **Measure Loss**: Projection에 의한 손실의 정량화
 
 ---
 

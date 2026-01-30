@@ -17,7 +17,7 @@ $$\exists! \, \mathcal{O}: \forall \text{UEM-theorems } \tau, \, \tau \in \text{
 
 *이 섹션은 수학적 증명의 본질과는 무관한 철학적 표현입니다.*
 
-본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **정보 이론적 엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
+본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
 
 $$\text{개구리} = \text{UEM} \iff H(\text{개구리}) = H(\text{UEM})$$
 
@@ -43,7 +43,7 @@ Let $M(t) \subseteq X$ be the **margin region** evolving over time $t \in [0, \i
 
 Let $\mu(M(t))$ be the **margin measure** (volume/size of margin).
 
-Let $F_M: X \times [0, \infty) \to \mathbb{R}^n$ be the **flux vector field** describing information flow into/out of the margin.
+Let $F_M: X \times [0, \infty) \to \mathbb{R}^n$ be the **flux vector field** describing measure flow into/out of the margin.
 
 Let $S_M: X \times [0, \infty) \to \mathbb{R}$ be the **source term** describing creation/destruction of margin.
 
@@ -90,15 +90,15 @@ $$\frac{\partial}{\partial t} \mu(M(t)) = \int_{\partial M(t)} v \cdot n \, d\si
 
 ### **Step 2: Relate Boundary Velocity to Flux**
 
-The **flux vector field** $F_M$ describes the flow of "margin information" across the boundary:
+The **flux vector field** $F_M$ describes the flow of margin measure across the boundary:
 $$F_M \cdot n = \text{Net flow of margin across boundary}$$
 
 By definition of flux:
 $$F_M \cdot n = v \cdot n$$
 
 **Intuition**: The velocity of the boundary $v$ is directly related to the flux $F_M$:
-- If information flows **into** the margin, $F_M \cdot n < 0$ (inward normal)
-- If information flows **out of** the margin, $F_M \cdot n > 0$ (outward normal)
+- If measure flows **into** the margin, $F_M \cdot n < 0$ (inward normal)
+- If measure flows **out of** the margin, $F_M \cdot n > 0$ (outward normal)
 
 ### **Step 3: Apply Divergence Theorem**
 
@@ -117,7 +117,7 @@ Let $S_M(x, t)$ be the **source density**:
 The total source is:
 $$\int_{M(t)} S_M(x, t) \, d\mu(x)$$
 
-### **Step 5: Conservation of Margin Information**
+### **Step 5: Conservation of Margin Measure**
 
 The **change in margin measure** must equal:
 - **Net inflow** across boundary (negative divergence)
@@ -126,7 +126,7 @@ The **change in margin measure** must equal:
 Therefore:
 $$\frac{\partial}{\partial t} \mu(M(t)) = -\int_{\partial M(t)} F_M \cdot n \, d\sigma(x) + \int_{M(t)} S_M \, d\mu(x)$$
 
-**Sign convention**: Negative flux means margin is **growing** (information flowing into margin).
+**Sign convention**: Negative flux means margin is **growing** (measure flowing into margin).
 
 ### **Step 6: Apply Divergence Theorem**
 
@@ -194,27 +194,11 @@ $$\boxed{\frac{\partial}{\partial t} \mu(M(t)) + \text{div}(F_M) = S_M}$$
 2. **Divergence Theorem**: Flux-surface integral to volume integral conversion ✓
 3. **Continuity Equation**: Conservation law form ✓
 
-###  Physical Interpretation
-
-- **Mass conservation analogy**: Margin measure like fluid mass
-- **Flux**: Flow of "margin information" across boundaries
-- **Source**: Creation/destruction of margin (like mass sources)
-
 ###  UEM 철학적 정합성
 
-- **Margin Persistence**: 여백 정보는 시간에 따라 보존/변형됨
+- **Margin Persistence**: 여백 측도는 시간에 따라 보존/변형됨
 - **Dynamic Evolution**: 정적 집합에서 동적 시스템으로 확장
 - **FOUNDATIONS v1.0과 부합**: Ax-3 여백 보존의 시간演化
-
----
-
-## 응용 및 함의
-
-1. **Fluid Dynamics**: Mass, momentum conservation equations
-2. **Information Theory**: Information flow and entropy dynamics
-3. **Quantum Mechanics**: Probability current continuity
-
----
 
 ---
 

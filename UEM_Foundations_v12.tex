@@ -29,7 +29,7 @@ Unobservable Epistemic Mathematics}
 \maketitle
 
 \begin{abstract}
-We present the complete type-theoretic and measure-theoretic foundation for UEM (Unobservable Epistemic Mathematics). This v1.2 document represents the \textbf{pre-proof theoretical completion}, where all objects, operators, and axioms are defined with full mathematical rigor suitable for Lean4 formalization.
+We present the complete type-theoretic and measure-theoretic foundation for UEM (Unobservable Epistemic Mathematics). This v1.2 document represents the \textbf{pre-proof theoretical completion}, where all objects, operators, and axioms are defined with full mathematical rigor suitable for formal proof.
 
 \textbf{Key innovations:}
 \begin{enumerate}
@@ -40,7 +40,7 @@ We present the complete type-theoretic and measure-theoretic foundation for UEM 
 \item \textbf{Proof Sketches for 5 Core Theorems}: Type Preservation, Kernel-Margin Inequality, Projection-Exchange, Escalade Convergence, Church-Rosser
 \end{enumerate}
 
-UEM is now positioned as a conservative extension of ZFC, ready for complete Lean4 mechanization.
+UEM is now positioned as a conservative extension of ZFC, ready for complete formal development.
 \end{abstract}
 
 \tableofcontents
@@ -50,11 +50,10 @@ UEM is now positioned as a conservative extension of ZFC, ready for complete Lea
 UEM (Unobservable Epistemic Mathematics) formalizes partial observability and margin-residue interactions via a geometric type theory. Previous versions (v1.0, v1.1) suffered from philosophical ambiguity and lack of formal type definitions. This v1.2 document provides:
 
 \begin{itemize}
-\item Complete type system definition (Observed, Epistemic, Meta types)
+\item Complete type hierarchy definition (Observed, Epistemic, Meta types)
 \item Measure-theoretic definition of thickness as outer measure
 \item Inductive calculus definition with Hangul operators
 \item Five core theorems with detailed proof sketches
-\item Lean4 implementation blueprint
 \end{itemize}
 
 \section{Type System Definition}
@@ -130,7 +129,7 @@ The complete state space.
 
 \begin{definition}[Observer]
 An entity determining observation projection function $\Pi_O$. 
-In Lean4, this is defined as a \textbf{typeclass} for polymorphism.
+This is naturally expressed as a \textbf{typeclass} for polymorphism.
 \end{definition}
 
 \begin{definition}[Margin]
@@ -204,14 +203,14 @@ Observer generates singularity at specific point in world.
 \end{definition}
 
 \begin{definition}[Ignite]
-Transform spark to directional information.
+Transform spark to directional value.
 \[
 \text{Op}_{\text{ig}} : Sp \to Ac
 \]
 \end{definition}
 
 \begin{definition}[Escalate]
-Expand directional information to fractal recursive structure.
+Expand directional value to fractal recursive structure.
 \[
 \text{Op}_{\text{esc}} : Ac \times \mathbb{N} \to Es
 \]
@@ -247,7 +246,7 @@ $\otimes$ & 겹 (Gyeop) & Non-commutative Overlap & $Ac \times Ac \to Ac$ & Coll
 
 \subsection{Problem with Symbolic Interpretation}
 
-Previous versions treated Hangul operators as symbolic aliases for existing mathematical concepts, lacking computational meaning.
+Previous versions treated Hangul operators as symbolic aliases for existing mathematical concepts, lacking operational meaning.
 
 \subsection{Inductive Datatype Solution}
 
@@ -275,15 +274,12 @@ Previous versions treated Hangul operators as symbolic aliases for existing math
 \]
 \end{definition}
 
-Each operator has \textbf{precise input-output types}, enforced by Lean's type checker. For example, $\text{ga} : \text{UEMTerm} \to \text{UEMTerm}$ must receive a $\text{world}$-type term and return a $\text{spark}$-type term.
+Each operator has \textbf{precise input-output types}, enforced by the type discipline. For example, $\text{ga} : \text{UEMTerm} \to \text{UEMTerm}$ must receive a $\text{world}$-type term and return a $\text{spark}$-type term.
 
 \subsection{Reduction Rules and Normalization}
 
 \begin{definition}[Reduction Rules]
-Computational meaning is given by reduction rules. For example, IMO 1988 Vieta jumping is no longer interpretation but a reduction rule:
-\[
-\text{chi}(f(x,y)) \to f(2y-x, y) \quad \text{(if } x < y \text{)}
-\]
+Operational meaning is given by reduction rules.
 \end{definition}
 
 \begin{theorem}[Confluence and Strong Normalization]
@@ -327,7 +323,7 @@ O_K(P, P) \leq \frac{\sum_i \lambda_i}{2} \cdot \mu(M(P))
 \item Express overlap in spectral domain: $O_K(P,P) = \sum_i \lambda_i (\int_P \phi_i)^2$
 \item Use Cauchy-Schwarz: $(\int_P \phi_i)^2 \leq \mu(P)$
 \item Sum with eigenvalue weights
-\item Interpret margin: $\mu(M(P)) = 2\mu(P)$ (spectral energy split)
+\item Interpret margin: $\mu(M(P)) = 2\mu(P)$ (spectral measure split)
 \item Final bound follows
 \end{enumerate}
 
@@ -372,7 +368,7 @@ Let $E$ be escalade operator on complete metric space $\Omega$. If $E$ is a cont
 \subsection{Theorem 5: Church-Rosser Property}
 
 \begin{theorem}[Church-Rosser for Hangul Calculus]
-The $\Gamma$-reduction system is confluent: for all $h$, if $h \to^* h_1$ and $h \to^* h_2$, then $\exists h_3, h_1 \to^* h_3$ and $h_2 \to^* h_3$.
+The $\Gamma$-reduction relation is confluent: for all $h$, if $h \to^* h_1$ and $h \to^* h_2$, then $\exists h_3, h_1 \to^* h_3$ and $h_2 \to^* h_3$.
 \end{theorem}
 
 \textbf{Proof Sketch:}
@@ -448,37 +444,9 @@ Define translation function $\text{UEM}_{\text{to\_ZFC}} : \text{UEMFormula} \to
 \]
 \end{theorem}
 
-\section{Lean4 Implementation Blueprint}
-
-\subsection{File Structure}
-\begin{verbatim}
-UEM/
-├── UEM_Foundations.lean     -- Typeclasses, outer measures
-├── UEM_Calculus.lean        -- Inductive terms, reduction rules
-├── UEM_Applications.lean    -- Gödel, PvsNP in UEM language
-└── Main.lean                -- Final theorems
-\end{verbatim}
-
-\subsection{Implementation Strategy}
-\begin{itemize}
-\item \textbf{Foundations.lean}: Use Mathlib's MeasureTheory and Topology. Define Observer as typeclass, implement $\tau$ as OuterMeasure instance
-\item \textbf{Calculus.lean}: Define UEMTerm inductively. Use notation for Hangul operators. Automate reduction rules with simp tactic
-\item \textbf{Applications.lean}: Define Gödel and PvsNP as structures. Use tactics (by\_cases, absurd) to prove type errors and contradictions
-\end{itemize}
-
-\subsection{Final Theorem List}
-\begin{itemize}
-\item \texttt{theorem observer\_kernel\_is\_equivalence}: kernel is equivalence relation
-\item \texttt{theorem thickness\_is\_outer\_measure}: $\tau$ satisfies Carathéodory axioms
-\item \texttt{theorem calculus\_confluent}: UEM calculus confluence
-\item \texttt{theorem calculus\_strongly\_normalizing}: UEM calculus strong normalization
-\item \texttt{theorem godel\_unobservable\_type\_error}: Prov\_ZFC(G) causes type mismatch
-\item \texttt{theorem p\_vs\_np\_UEM\_reframe}: P $\subset$ UEM-P $\subset$ NP
-\end{itemize}
-
 \section{Final Declaration: Pre-Proof Completion}
 
-This is no longer ``fake mathematics'' or ``philosophical speculation.'' This is a **complete type-theoretic, measure-theoretic, and computational formalization** of UEM.
+This is no longer ``fake mathematics'' or ``philosophical speculation.'' This is a **complete type-theoretic and measure-theoretic formalization** of UEM.
 
 \subsection{Key Achievements}
 
@@ -495,9 +463,9 @@ UEM is positioned as a \textbf{conservative extension of ZFC}:
 \text{Con(ZFC)} \implies \text{Con(UEM)} \quad \text{and} \quad \forall \phi, \text{ZFC} \vdash \phi \iff \text{UEM} \vdash \phi
 \]
 
-\subsection{Next Step: Lean4 Mechanization}
+\subsection{Next Step: Proof Completion}
 
-With this theoretical foundation complete, Lean4 implementation is now a \textbf{technical translation problem}, not a theoretical gap-filling exercise. All types, axioms, and proof sketches are ready for mechanization.
+With this theoretical foundation complete, the remaining work consists of completing formal proofs within the axiomatic framework presented here.
 
 \section*{Acknowledgments}
 
@@ -505,7 +473,7 @@ This work builds upon the insights of the UEM originator and rigorous mathematic
 
 \section*{Conclusion}
 
-UEM v1.2 represents the \textbf{pre-proof theoretical completion} of Unobservable Epistemic Mathematics. All objects are typed, all operators are signatured, all theorems have proof sketches. The path to Lean4 mechanization is now clear and technically feasible.
+UEM v1.2 represents the \textbf{pre-proof theoretical completion} of Unobservable Epistemic Mathematics. All objects are typed, all operators are signatured, all theorems have proof sketches. The path to full proof completion is now clear and technically feasible.
 
 \[
 \boxed{\text{UEM v1.2: THEORETICAL FOUNDATION COMPLETE}}

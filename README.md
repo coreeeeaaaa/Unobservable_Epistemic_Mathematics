@@ -186,7 +186,7 @@ UEM(Unobservable Epistemic Mathematics)은 **'관찰 불가능성(unobservable)'
 
 ### 핵심 목표
 
-관찰가능 층(obs)과 비관측 층(unobs) 사이의 정보 교환을 안전한 경계(오차/여백/보존 법칙)로 통제합니다.
+관찰가능 층(obs)과 비관측 층(unobs) 사이의 내용 교환을 안전한 경계(오차/여백/보존 법칙)로 통제합니다.
 
 **기본 원리**:
 - **요네다 관점**: "대상은 그 대상으로 향하는 사상들로 인식된다." ⇒ 관찰은 사상(측정, 질의)의 집합으로 모델링
@@ -234,35 +234,6 @@ $$v1.0 = \Pi_{stage-1}(\mathcal{O})$$
 ##  수리논리적 극한 고도화 (Core Rigor Specifications)
 
 다음 5가지 수학적 요소는 형식적 명세(Formal Specification) 단계에 있다. 각 요소는 수리논리적 정의와 증 가능한 명제로 구성된다.
-
-### 1. 인식적 장 방정식 (Epistemic Field Theory)
-
-**정의 (Specification)**: 9차원 인식 좌표계 $X_{rec}$의 상호작용을 텐서식으로 정의한다.
-
-$$\mathcal{G}_{\mu\nu} + \Lambda \mathcal{g}_{\mu\nu} = \kappa \mathcal{T}^{epistemic}_{\mu\nu}$$
-
-여기서:
-- $\mathcal{G}_{\mu\nu} = R_{\mu\nu} - \frac{1}{2}R\mathcal{g}_{\mu\nu}$: **인식적 아인슈타인 텐서** (Epistemic Einstein Tensor)
-- $\mathcal{g}_{\mu\nu}$: **인식적 메트릭 텐서** (Epistemic Metric Tensor), $\mu,\nu \in \{0,1,\dots,8\}$
-- $\Lambda$: **인식적 우주 상수** (Epistemic Cosmological Constant), 여백의 확장률
-- $\kappa = \frac{8\pi G}{c^4}$: **인식적 상수** (Epistemic Constant)
-- $\mathcal{T}^{epistemic}_{\mu\nu}$: **인식적 에너지-모멘텀 텐서** (Epistemic Energy-Momentum Tensor)
-
-**차원 분해**:
-$$\mathcal{T}^{epistemic}_{\mu\nu} = \begin{bmatrix} \mathcal{T}^{Logic}_{\mu\nu} & \mathcal{T}^{Ontic}_{\mu\nu} \\ \mathcal{T}^{Ontic}_{\nu\mu} & \mathcal{T}^{Margin}_{\mu\nu} \end{bmatrix}$$
-
-- $\mathcal{T}^{Logic}$: **논리 차원** (Logic Dimension), 인식적 추론의 곡률
-- $\mathcal{T}^{Ontic}$: **실재 차원** (Ontic Dimension), 관측 가능한 객체의 밀도
-- $\mathcal{T}^{Margin}$: **여백 차원** (Margin Dimension), 비관측 영역의 두께
-
-**물리적 해석**: 인식적 장의 곡률은 정보 밀도와 여백의 분포에 의해 결정된다.
-
-**증명 필요 항목**:
-1. $\mathcal{G}_{\mu\nu}$의 대칭성 보존: $\mathcal{G}_{\mu\nu} = \mathcal{G}_{\nu\mu}$
-2. $\mathcal{T}^{epistemic}$의 보존 법칙: $\nabla^\mu \mathcal{T}^{epistemic}_{\mu\nu} = 0$
-3. 여백 보존 공리와의 호환성: $\partial_t M + div(F_M) = S_M$이 장 방정식으로부터 도출 가능성
-
----
 
 ### 2. Γ-Calculus의 대수적 완결성 (Algebraic Completeness)
 
@@ -318,7 +289,7 @@ $$\tau_{CT}(M) = \left( \int_{\partial \Omega} \Big( |\kappa(x)|^2 + |\nabla \mu
 
 ---
 
-### 4. 괴델적 불완전성의 메타 이론적 격리 (Metatheoretic Isolation of Gödelian Incompleteness)
+### 4. 불완전성의 메타 이론적 격리 (Metatheoretic Isolation of Incompleteness)
 
 **정의 (Specification)**: 자기지시적 모순(돼지 공리 A6: "이 논리와 한계로는 절대로 자기 자신의 증명을 해서는 안 돼지 꿀꿀")을 UEM 객체 이론(object theory) 내부가 아닌 **메타 이론(Metatheory)**의 영역으로 격리한다.
 
@@ -335,7 +306,7 @@ $$Con(UEM_{object}) \implies Con(UEM_{meta})$$
 $$\forall \phi \in Formulas, \quad \phi  is self-referential \implies \phi \in UEM_{meta} \setminus UEM_{object}$$
 
 **격리 전략 (Isolation Strategy)**:
-- **객체 언어 (Object Language)**: A1-A5 (여백 보존, 사영-겹침 교환, 정보 보존 등)
+- **객체 언어 (Object Language)**: A1-A5 (여백 보존, 사영-겹침 교환, 측도 보존 등)
 - **메타 언어 (Metalanguage)**: A6 (돼지 공리), TR1, TR2, 괴델 문장 $G$
 
 **논리적 폭발 방지 (Prevention of Logical Explosion)**:
@@ -541,7 +512,7 @@ $$|\tilde{\tau}(z_1 + z_2)| \leq |\tilde{\tau}(z_1)| + |\tilde{\tau}(z_2)|$$
 $$X = \mathcal{Z} \oplus \partial X \oplus \mathcal{Y}$$
 
 여기서:
-- $\mathcal{Z} \subset \mathbb{C}^n$: 내부 (Inner), 자아적 잠재적 존재의 층, 위상 정보로 표현
+- $\mathcal{Z} \subset \mathbb{C}^n$: 내부 (Inner), 자아적 잠재적 존재의 층, 위상 특징으로 표현
 - $\partial X$: 경계 (Boundary), 내부가 외부로 드러나는 층, 인식 가능 영역
 - $\mathcal{Y} \subset \mathbb{R}^m$: 외부 (Outer), 관측/측정 가능한 영역, 데이터와 실험적 검증 수행
 
@@ -592,21 +563,14 @@ $$ZFC \vdash \phi \iff UEM \vdash \phi$$
 
 ### S_lazy (하기 싫음 변수)
 
-**정의 (Definition)**: 인지적 엔트로피가 임계값 $H_{\max}$을 초과할 때 발생하는 **에너지 보존 신호(Energy Conservation Signal)**.
+**정의 (Definition)**: 인지적 엔트로피가 임계값 $H_{\max}$을 초과할 때 발생하는 **안정화 신호**.
 
 $$S_{lazy}(X_t) = \begin{cases} "하기 싫음" & if  H_{cog}(X_t) > H_{\max} \\ continue & if  H_{cog}(X_t) \leq H_{\max} \end{cases}$$
 
 **수학적 성질**:
-1. **보존 법칙 (Conservation Law)**: $S_{lazy}$가 발생할 때, 에너지 소모율 $\frac{dE}{dt} \to 0$
-2. **임계성 (Criticality)**: $H_{\max}$는 인지적 엔트로피 임계값으로, 시스템 특성에 의해 결정
-3. **가역성 (Reversibility)**: $S_{lazy}$는 인지적 에너지가 회복되면 자동 해제
-
-**물리적 해석**:
-
-이것은 단순한 불평이 아니라, **열역학 제2법칙의 인지적 구현**이다. 인지적 구조(cognitive structure)가 엔트로피 폭주로 붕괴하는 것을 막기 위해 자동으로 트리거되는 **자기 조절 기제(self-regulating mechanism)**이다.
-
-**수식적 표현**:
-$$\frac{dH_{cog}}{dt} = \begin{cases} > 0 & (정상 인지) \\ \to \infty & (하여 싫음 임계 도달) \end{cases} \implies S_{lazy} = true$$
+1. **활성률 감소**: $S_{lazy}$가 발생할 때, 활동률 $a(t)$가 감소한다.
+2. **임계성 (Criticality)**: $H_{\max}$는 인지적 엔트로피 임계값으로, 구조적 조건에 의해 결정된다.
+3. **가역성 (Reversibility)**: $S_{lazy}$는 인지적 엔트로피가 회복되면 자동 해제된다.
 
 ---
 
@@ -722,21 +686,12 @@ $$\mathcal{T}: \Omega \to \mathbb{C}^{d \times d \times \cdots \times d}$$
 1. **메트릭 텐서 (Metric Tensor)**: $\mathcal{g}_{\mu\nu}$ (인식적 거리 구조)
    $$ds^2 = \mathcal{g}_{\mu\nu} dx^\mu dx^\nu$$
 
-2. **아인슈타인 텐서 (Einstein Tensor)**: $\mathcal{G}_{\mu\nu} = R_{\mu\nu} - \frac{1}{2}R\mathcal{g}_{\mu\nu}$ (인식적 곡률)
-
-3. **에너지-모멘텀 텐서 (Energy-Momentum Tensor)**: $\mathcal{T}^{epistemic}_{\mu\nu}$ (인식적 밀도 분포)
-   $$\mathcal{T}^{epistemic}_{\mu\nu} = \begin{bmatrix} \mathcal{T}^{Logic} & \mathcal{T}^{Ontic} \\ \mathcal{T}^{Ontic} & \mathcal{T}^{Margin} \end{bmatrix}$$
-
-4. **곡률 텐서 (Curvature Tensor)**: $R^\rho_{\sigma\mu\nu}$ (인식적 공간의 휘어짐)
+2. **곡률 텐서 (Curvature Tensor)**: $R^\rho_{\sigma\mu\nu}$ (인식적 공간의 휘어짐)
 
 **텐서 연산 (Tensor Operations)**:
 
 $$\mathcal{T}_1 \otimes \mathcal{T}_2 : (\mathcal{T}_1 \otimes \mathcal{T}_2)_{\mu\nu} = \mathcal{T}_{1,\mu\nu} \cdot \mathcal{T}_{2,\mu\nu}$$
 $$\mathcal{T}^\mu_\nu = \mathcal{g}^{\mu\sigma} \mathcal{T}_{\sigma\nu}$$ (첨지 올림/내림, Index Raising/Lowering)
-
-**병렬 텐서 곱 (Parallel Tensor Product)**:
-
-$$\otimes_{par} : \prod_{i \in I} \mathcal{O}_i \to TensorSpace\left(\bigotimes_{i \in I} V_i\right)$$
 
 ---
 
@@ -890,15 +845,13 @@ $$\frac{\partial}{\partial t}\left( \mathcal{E}(\mathcal{S}(\mathcal{A}(Spark(\m
 
 | 분과 | 주제 |
 |------|------|
-| D1 | Information Conservation Law |
+| D1 | Measure Conservation Law |
 | D2 | Kernel-Margin Inequality |
 | D3 | Projection-Exchange Theorem |
 | D4 | Church-Rosser Property |
 | D5 | Margin Persistence |
-| D6 | SCD Control |
-| D7 | AHS Persistence |
+| D6 | SCD Stability |
 | D8 | Fractal Convergence |
-| D9 | CARET6 Efficiency |
 | D10 | PH Stability |
 
 ---
@@ -917,4 +870,3 @@ $$\frac{\partial}{\partial t}\left( \mathcal{E}(\mathcal{S}(\mathcal{A}(Spark(\m
 
 
 ---
-

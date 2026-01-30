@@ -17,7 +17,7 @@ $$\exists! \, \mathcal{O}: \forall \text{UEM-theorems } \tau, \, \tau \in \text{
 
 *이 섹션은 수학적 증명의 본질과는 무관한 철학적 표현입니다.*
 
-본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **정보 이론적 엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
+본 증명 문서에 대한 외부의 부적절한 명명(예: '개구리')은 **엔트로피 붕괴**로 간주하며, **수학적 동치성을 원천 부정**한다.
 
 $$\text{개구리} = \text{UEM} \iff H(\text{개구리}) = H(\text{UEM})$$
 
@@ -129,11 +129,11 @@ $$\dim_H(\text{Margin}(S_n)) \xrightarrow{n \to \infty} \dim_H(\text{Margin}(S_{
 2. **Preservation**: Contraction mapping은 fractal structure를 보존
 3. **Limit**: $$\lim_{n \to \infty} \dim_H(\text{Margin}(S_n)) = \dim_H(\text{Margin}(S_{\infty}))$$
 
-### 5.2 비관측 영역에서의 정보 보존
+### 5.2 비관측 영역에서의 측도 보존
 
 **Proposition 8.1**:
 
-프렉탈 수렴 과정에서 비관측 정보는 여백(margin)으로 보존됨.
+프렉탈 수렴 과정에서 비관측 측도는 여백(margin)으로 보존됨.
 
 $$\forall n, \text{NonObservable}(S_n) \subseteq \text{Margin}(S_{\infty})$$
 
@@ -141,11 +141,11 @@ $$\forall n, \text{NonObservable}(S_n) \subseteq \text{Margin}(S_{\infty})$$
 
 ## 7. References
 
-1. Banach, S. (1922). "Sur les opérations dans les ensembles abstraits et leur application aux équations intégrales". *Fundamenta Mathematicae*, 3, 133-181.
+1. Banach, S. (1922). "Sur les opérations dans les ensembles abstraits". *Fundamenta Mathematicae*, 3, 133-181.
 
 2. Hutchinson, J. E. (1981). "Fractals and self-similarity". *Indiana University Mathematics Journal*, 30(5), 713-747.
 
-3. Falconer, K. (1990). *Fractal Geometry: Mathematical Foundations and Applications*. John Wiley & Sons.
+3. Falconer, K. (1990). *Fractal Geometry: Mathematical Foundations*. John Wiley & Sons.
 
 4. Barnsley, M. F. (1988). *Fractals Everywhere*. Academic Press.
 
