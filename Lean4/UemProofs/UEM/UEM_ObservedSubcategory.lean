@@ -1,6 +1,6 @@
 import UemProofs.UEM.UEM_Structure
 import UemProofs.UEM.UEM_Calculus
-import UemProofs.UEM.UEM_Conservativity
+import UemProofs.UEM.UEM_ObservedEmbedding
 import Mathlib.CategoryTheory.Functor.FullyFaithful
 
 namespace UEM

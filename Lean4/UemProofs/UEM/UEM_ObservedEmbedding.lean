@@ -41,7 +41,7 @@ theorem obsInclusion_not_surjective : ¬Function.Surjective obsInclusion := by
   -- contradiction: spark is not observed
   cases this
 
-/-! ## Observed operators and conservativity -/
+/-! ## Observed operators and embedding facts -/
 
 structure ObservedOperator (a b : ObservedObjType) where
   apply : Carrier a.1 → Carrier b.1

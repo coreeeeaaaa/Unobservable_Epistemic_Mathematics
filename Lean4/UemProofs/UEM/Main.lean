@@ -12,7 +12,7 @@ import UemProofs.UEM.UEM_HangulCardinality
 import UemProofs.UEM.UEM_HangulDirection
 import UemProofs.UEM.UEM_ObservedSubcategory
 import UemProofs.UEM.UEM_CartesianProduct
-import UemProofs.UEM.UEM_Conservativity
+import UemProofs.UEM.UEM_ObservedEmbedding
 import UemProofs.UEM.UEM_Extensions.UEM_ProjectionGeometry
 import UemProofs.UEM.UEM_Extensions.UEM_SCD_AHS
 import UemProofs.UEM.UEM_Extensions.UEM_Fractal
