@@ -55,4 +55,8 @@ theorem card_syllable : Fintype.card Syllable = 11172 := by
     _ = 11172 := by
             norm_num
 
+noncomputable def syllableEquivFin : Syllable ≃ Fin 11172 := by
+  classical
+  exact (Fintype.equivFinOfCardEq (by simpa using card_syllable))
+
 end UEM
