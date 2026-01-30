@@ -14,12 +14,6 @@
 
 ---
 
-## 0.1 선언문(Declaration)의 정식화 원칙
-- 선언문은 **정의/정리/추측**으로 변환된 항목만 정본에 포함한다.
-- 서사/문학/메타 서술은 **비정본**이며 증명 근거로 사용하지 않는다.
-- 선언문에서 요구되는 정식화 항목은 다음 문서에 명시한다:  
-  `UEM-PROJECT-DOCS/UEM_DECLARATION_FORMALIZATION_SPEC.md`
-
 ## 1. 기반 체계 (Foundational Core)
 ### 1.1 World / Observer / Kernel
 - `World := Type u`
