@@ -13,6 +13,10 @@ import UemProofs.UEM.UEM_HangulDirection
 import UemProofs.UEM.UEM_ObservedSubcategory
 import UemProofs.UEM.UEM_CartesianProduct
 import UemProofs.UEM.UEM_ObservedEmbedding
+import UemProofs.UEM.UEM_Theory
+import UemProofs.UEM.UEM_Semantics
+import UemProofs.UEM.UEM_Soundness
+import UemProofs.UEM.UEM_ModelExistence
 import UemProofs.UEM.UEM_Extensions.UEM_ProjectionGeometry
 import UemProofs.UEM.UEM_Extensions.UEM_SCD_AHS
 import UemProofs.UEM.UEM_Extensions.UEM_Fractal

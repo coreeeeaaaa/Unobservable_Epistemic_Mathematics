@@ -55,3 +55,7 @@ All public docs align with Lean symbols in this repository.
 | Observed fragment as full & faithful inclusion | `observedInclusion` (Full, Faithful) | `Lean4/UemProofs/UEM/UEM_ObservedSubcategory.lean` |
 | Cartesian product universal property | `fstOp_comp_lift`, `sndOp_comp_lift`, `lift_unique` | `Lean4/UemProofs/UEM/UEM_CartesianProduct.lean` |
 | Syllable indexing equivalence | `syllableEquivFin` | `Lean4/UemProofs/UEM/UEM_HangulCardinality.lean` |
+| UEM-0 syntax and derivations | `UEM0OpTerm`, `eval`, `Derives` | `Lean4/UemProofs/UEM/UEM_Theory.lean` |
+| UEM-0 models and evaluation | `Model`, `evalM`, `coreModel` | `Lean4/UemProofs/UEM/UEM_Semantics.lean` |
+| UEM-0 soundness | `Holds`, `soundness` | `Lean4/UemProofs/UEM/UEM_Soundness.lean` |
+| UEM-0 model existence | `NontrivialModel`, `model_exists` | `Lean4/UemProofs/UEM/UEM_ModelExistence.lean` |
