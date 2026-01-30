@@ -45,12 +45,17 @@ theorem soundness (M : Model) {t u : UEM0OpTerm a b} : Derives t u → Holds M t
       intro x
       have hf : ∀ y, M.fst (evalM M h y) = evalM M f y := by
         intro y
-        simpa [evalM] using ihfst y
+        have h1 := ihfst y
+        dsimp [evalM] at h1
+        exact h1
       have hg : ∀ y, M.snd (evalM M h y) = evalM M g y := by
         intro y
-        simpa [evalM] using ihsnd y
+        have h1 := ihsnd y
+        dsimp [evalM] at h1
+        exact h1
       have hfun : evalM M h = fun y => M.lift (evalM M f) (evalM M g) y := by
         exact M.lift_unique (evalM M h) (evalM M f) (evalM M g) hf hg
-      simpa [evalM, hfun]
+      change evalM M h x = M.lift (evalM M f) (evalM M g) x
+      exact congrArg (fun k => k x) hfun
 
 end UEM
