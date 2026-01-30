@@ -72,7 +72,7 @@ def FClassOf : Option Jongseong → FClass
   | none => .null
   | some f =>
       match FPrimary f with
-      | .g | .d | .b | .s | .j | .k | .t | .p | .ch => .solid
+      | .g | .d | .b | .s | .ss | .j | .k | .t | .p | .ch => .solid
       | .n | .r | .m | .ng => .fluid
       | .h => .null
       | .gg | .gs | .nj | .nh | .rg | .rm | .rb | .rs | .rt | .rp | .rh | .bs => .solid

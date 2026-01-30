@@ -32,6 +32,7 @@ Sources of Truth (priority):
 
 | Doc | Lean Theorem(s) | File |
 |---|---|---|
+| `D0_Hangul_Cardinality_Direction_Proof.md` | `card_choseong`, `card_jungseong`, `card_jongseong`, `card_syllable`, `directionOfVowel_total`, `syllableDirection_def` | `Lean4/UemProofs/UEM/UEM_HangulCardinality.lean`, `Lean4/UemProofs/UEM/UEM_HangulDirection.lean` |
 | `D1_A7_Axiom_Proof.md` | `thickness_countable_subadditivity` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` |
 | `D2_Kernel_Margin_Inequality_Proof.md` | `thickness_margin_inequality` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` |
 | `D3_Projection_Exchange_Proof.md` | `projObj_idempotent`, `projSet_idempotent`, `projCoord_idempotent`, `DimReduction_idempotent`, `kernel_iff_alias` | `Lean4/UemProofs/UEM/UEM_Extensions/UEM_ProjectionGeometry.lean` |

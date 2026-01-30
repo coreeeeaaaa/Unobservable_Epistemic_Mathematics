@@ -52,6 +52,10 @@ Type mappings are relations:
 
 Composition order is fixed: **C → V → F**.
 
+### 3.1 Direction Tagging
+- `directionOfVowel : Jungseong → Direction`
+- `syllableDirection s := directionOfVowel s.v`
+
 ---
 
 ## 4. Slot/Cube Structure

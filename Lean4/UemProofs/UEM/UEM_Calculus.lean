@@ -214,7 +214,7 @@ theorem Commit_type_preserving (e : Escalade) :
 inductive Choseong
   | g | n | d | r | m | b | s | ng | j | ch | k | t | p | h
   | gg | dd | bb | ss | jj
-  deriving DecidableEq, Repr
+  deriving DecidableEq, Repr, Fintype
 
 notation "ㄱ" => Choseong.g
 notation "ㄴ" => Choseong.n
@@ -240,7 +240,7 @@ notation "ㅉ" => Choseong.jj
 inductive Jungseong
   | a | ya | eo | yeo | o | yo | u | yu | eu | i
   | ae | e | oe | wi | ui | wa | wae | wo | we | ye | yae
-  deriving DecidableEq, Repr
+  deriving DecidableEq, Repr, Fintype
 
 notation "ㅏ" => Jungseong.a
 notation "ㅑ" => Jungseong.ya
@@ -266,9 +266,9 @@ notation "ㅒ" => Jungseong.yae
 
 /-- Jongseong (final consonants). -/
 inductive Jongseong
-  | g | n | d | r | m | b | s | ng | j | ch | k | t | p | h
+  | g | n | d | r | m | b | s | ss | ng | j | ch | k | t | p | h
   | gg | gs | nj | nh | rg | rm | rb | rs | rt | rp | rh | bs
-  deriving DecidableEq, Repr
+  deriving DecidableEq, Repr, Fintype
 
 notation "ㄱₓ" => Jongseong.g
 notation "ㄴₓ" => Jongseong.n
@@ -277,6 +277,7 @@ notation "ㄹₓ" => Jongseong.r
 notation "ㅁₓ" => Jongseong.m
 notation "ㅂₓ" => Jongseong.b
 notation "ㅅₓ" => Jongseong.s
+notation "ㅆₓ" => Jongseong.ss
 notation "ㅇₓ" => Jongseong.ng
 notation "ㅈₓ" => Jongseong.j
 notation "ㅊₓ" => Jongseong.ch
@@ -311,6 +312,7 @@ def FPrimary : Jongseong → Jongseong
   | .rp => .r
   | .rh => .r
   | .bs => .b
+  | .ss => .s
   | f   => f
 
 /-- A syllable is a (C, V, F?) triple. -/
@@ -318,7 +320,7 @@ structure Syllable where
   c : Choseong
   v : Jungseong
   f? : Option Jongseong
-  deriving DecidableEq, Repr
+  deriving DecidableEq, Repr, Fintype
 
 /-- Consonant type map: input type ↦ output type (partial). -/
 def CMap : Choseong → ObjType → Option ObjType
@@ -478,7 +480,7 @@ def FMap : Jongseong → ObjType → Option ObjType
       let f' := FPrimary f
       some <|
         match f' with
-        | .g | .d | .b | .s | .j | .k | .t | .p | .ch => .secare
+        | .g | .d | .b | .s | .ss | .j | .k | .t | .p | .ch => .secare
         | .n | .r | .m | .ng => .actyon
         | .h => .margin
         | .gg | .gs | .nj | .nh | .rg | .rm | .rb | .rs | .rt | .rp | .rh | .bs => .secare

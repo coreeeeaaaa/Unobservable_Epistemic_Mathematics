@@ -96,6 +96,16 @@
   - **총분류(total classification)** 보조정리
 - 이 행렬은 **정의적 관계**이며, 구체 CMap/VMap/FMap의 보조 근거로 사용된다.
 
+### 4.5 모음 방향 매핑 (Direction)
+- `directionOfVowel : Jungseong → Direction`
+- `syllableDirection s := directionOfVowel s.v`
+- 전단사/전체성은 정의에 의해 확보됨
+
+### 4.6 음절 조합 수 (Cardinality)
+- `|Choseong| = 19`, `|Jungseong| = 21`, `|Jongseong| = 27`
+- `|Syllable| = 19 × 21 × 28 = 11172`
+- `Syllable ≃ Choseong × Jungseong × Option Jongseong` 동형에 의해 증명
+
 ---
 
 ## 5. 슬롯/큐브 구조
