@@ -23,6 +23,8 @@ Sources of Truth (priority):
 | Hangul matrix relation | `MatrixRel` + soundness lemmas | `Lean4/UemProofs/UEM/UEM_HangulMatrix.lean` | OK |
 | Slot/Cube + coord counts | `Coord`, `Slot`, `Cube`, `coord_card_*` | `Lean4/UemProofs/UEM/UEM_Calculus.lean` | OK |
 | Category structure | `instance : Category ObjType` | `Lean4/UemProofs/UEM/UEM_Structure.lean` | OK |
+| Conservativity (observed fragment) | `obsInclusion_injective`, `obsInclusion_not_surjective`, `observed_operator_equiv` | `Lean4/UemProofs/UEM/UEM_Conservativity.lean` | OK |
+| Carrier nonempty (core model witness) | `carrier_nonempty` | `Lean4/UemProofs/UEM/UEM_Conservativity.lean` | OK |
 
 ---
 
