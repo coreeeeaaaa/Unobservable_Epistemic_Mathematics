@@ -12,8 +12,6 @@ Observed fragment as a full subcategory with a fully faithful inclusion functor.
 This is a categorical statement about the observed types inside ObjType.
 -/
 
-def ObservedObjType := { a : ObjType // IsObserved a }
-
 instance : Category ObservedObjType where
   Hom a b := Operator a.1 b.1
   id a := ⟨fun x => x⟩
@@ -41,12 +39,12 @@ def observedInclusion : ObservedObjType ⥤ ObjType where
     intro a b c f g
     rfl
 
-instance : Faithful observedInclusion where
+instance : CategoryTheory.Functor.Faithful observedInclusion where
   map_injective := by
     intro a b f g h
     exact h
 
-instance : Full observedInclusion where
+instance : CategoryTheory.Functor.Full observedInclusion where
   map_surjective := by
     intro a b f
     exact ⟨f, rfl⟩

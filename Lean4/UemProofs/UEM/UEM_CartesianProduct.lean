@@ -33,12 +33,12 @@ theorem lift_unique {c a b : ObjType} (f : Operator c a) (g : Operator c b)
     (hfst : Operator.comp (fstOp a b) h = f)
     (hsnd : Operator.comp (sndOp a b) h = g) :
     h = liftOp f g := by
-  ext x
-  -- use componentwise equality from the two projection equations
-  have hf := congrArg (fun op => op.apply x) hfst
-  have hg := congrArg (fun op => op.apply x) hsnd
+  apply Operator.ext
+  intro x
   apply Prod.ext
-  · simpa using hf
-  · simpa using hg
+  · have hf := congrArg (fun op => op.apply x) hfst
+    simpa [Operator.comp, fstOp] using hf
+  · have hg := congrArg (fun op => op.apply x) hsnd
+    simpa [Operator.comp, sndOp] using hg
 
 end UEM
