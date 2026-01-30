@@ -5,7 +5,7 @@ namespace UEM
 /-- A minimal fractal container over core slots. -/
 inductive Fractal (α : Type) where
   | atom : α → Fractal α
-  | recur : (Fractal α → Fractal α) → Fractal α
+  | recur : List (Fractal α) → Fractal α
 
 /-- A fractal cube is a level-indexed family of cubes. -/
 structure FractalCube (side height depth : Nat) where
@@ -20,5 +20,15 @@ def FractalCube.refine {side height depth : Nat} (f : FractalCube side height de
 def EscalateCube {side height depth : Nat} (c : Cube side height depth) :
     FractalCube side height depth :=
   { level := fun _ => c }
+
+/-! ## Fixed-point law for constant escalades -/
+
+theorem EscalateCube_level {side height depth : Nat} (c : Cube side height depth) (n : Nat) :
+    (EscalateCube c).level n = c := by
+  rfl
+
+theorem EscalateCube_refine_fixed {side height depth : Nat} (c : Cube side height depth) :
+    FractalCube.refine (EscalateCube c) = EscalateCube c := by
+  rfl
 
 end UEM

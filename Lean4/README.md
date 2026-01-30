@@ -1,3 +1,8 @@
-# UEM Formal Proofs (Lean)
+# UEM Lean Proofs (Pure Mathematics)
 
-This directory contains only formal proofs and core definitions.
+This directory contains the formal Lean proofs for the UEM pure-math system.
+
+Build:
+```
+lake build UemProofs.UEM.Main
+```

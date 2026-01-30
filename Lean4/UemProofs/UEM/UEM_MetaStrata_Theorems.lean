@@ -4,7 +4,7 @@ namespace UEM
 
 /-!
 Theorems extracted from structure fields (proof‑ready, no axioms).
--/-
+-/
 
 theorem boundary_idempotent (S : StrataSystem) (s : S.Stratum) :
     S.boundary (S.boundary s) = S.boundary s :=
@@ -33,9 +33,10 @@ theorem interior_monotone (S : StrataSystem) {a b : S.Stratum} (h : a ≤ b) :
 /-- Boundary of possible region lies in impossible region (structure law). -/
 theorem boundary_possible_subset_impossible
     (S : StrataSystem) (T : ImpossibilityTopology S) {x : S.Stratum}
-    (hx : x ∈ (TopologicalSpace.closure T.possible \ T.possible)) :
+    (hx : x ∈ ((@closure _ T.topo T.possible) \ T.possible)) :
     x ∈ T.impossible :=
-  T.boundary_possible_subset_impossible x hx
+by
+  exact T.boundary_possible_subset_impossible x hx
 
 /-- Admissible morphisms preserve recognizability. -/
 theorem admissible_preserves_recognizable

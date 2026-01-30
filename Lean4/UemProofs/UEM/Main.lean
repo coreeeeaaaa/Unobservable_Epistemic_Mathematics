@@ -10,7 +10,11 @@ import UemProofs.UEM.UEM_Structure
 import UemProofs.UEM.UEM_HangulMatrix
 import UemProofs.UEM.UEM_Extensions.UEM_ProjectionGeometry
 import UemProofs.UEM.UEM_Extensions.UEM_SCD_AHS
+import UemProofs.UEM.UEM_Extensions.UEM_Fractal
+import UemProofs.UEM.UEM_Extensions.UEM_Fractal_Theorems
+import UemProofs.UEM.UEM_Extensions.UEM_PH_Stability
 import UemProofs.UEM.UEM_MetaStrataBridge
+import UemProofs.UEM.UEM_MetaStrata_Theorems
 
 /-! # UEM Main Entry Point (Pure Formal Core) -/
 

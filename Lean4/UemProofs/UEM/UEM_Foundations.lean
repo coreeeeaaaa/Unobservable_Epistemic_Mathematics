@@ -93,4 +93,31 @@ theorem thickness_countable_subadditivity (basis : ThicknessBasis O) (s : ℕ �
 
 end ThicknessBasis
 
+/-! ## Margin Decomposition (pure measure law) -/
+
+namespace Margin
+
+variable {O : Type u}
+
+def marginSet (S T : Set O) : Set O := S \ T
+def coreSet (S T : Set O) : Set O := S ∩ T
+
+theorem margin_union (S T : Set O) :
+    marginSet S T ∪ coreSet S T = S := by
+  classical
+  ext x
+  by_cases hxS : x ∈ S <;> by_cases hxT : x ∈ T <;>
+    simp [marginSet, coreSet, hxS]
+
+theorem thickness_margin_inequality (basis : ThicknessBasis O) (S T : Set O) :
+    basis.thickness S ≤ basis.thickness (marginSet S T) + basis.thickness (coreSet S T) := by
+  classical
+  have h_union : marginSet S T ∪ coreSet S T = S := margin_union (S := S) (T := T)
+  have h :=
+    measure_union_le (μ := basis.outerMeasure) (s := marginSet S T) (t := coreSet S T)
+  -- rewrite union to S
+  simpa [ThicknessBasis.thickness, ThicknessBasis.outerMeasure, h_union] using h
+
+end Margin
+
 end UEM

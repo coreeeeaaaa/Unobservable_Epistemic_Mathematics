@@ -661,4 +661,45 @@ theorem Slot.eval_some_of_welltyped {sem : Semantics} {side height depth : Nat}
   refine ⟨⟨tb.1, interp sem tb.2 s.payload.val⟩, ?_⟩
   simp [Slot.eval, hg, htb]
 
+/-! ### Determinism and Type Preservation (core formalization) -/
+
+theorem Slot.eval_deterministic {sem : Semantics} {side height depth : Nat}
+    (s : Slot side height depth) {o₁ o₂ : TypedObject}
+    (h₁ : Slot.eval sem s = some o₁)
+    (h₂ : Slot.eval sem s = some o₂) : o₁ = o₂ := by
+  have : (some o₁ : Option TypedObject) = some o₂ := by
+    simpa [h₁] using h₂
+  exact Option.some.inj this
+
+theorem Slot.eval_preserves_type {sem : Semantics} {side height depth : Nat}
+    (s : Slot side height depth) {o : TypedObject}
+    (h : Slot.eval sem s = some o) :
+    o.ty = s.payload.ty ∨
+      ∃ g b t, s.glyph = some g ∧
+        syllableTerm s.payload.ty g = some ⟨b, t⟩ ∧ o.ty = b := by
+  classical
+  cases hg : s.glyph with
+  | none =>
+      left
+      have := Slot.eval_glyph_none (sem := sem) (s := s) (h := hg)
+      -- use uniqueness of evaluation
+      have : o = s.payload := Slot.eval_deterministic (sem := sem) (s := s) h this
+      simp [this]
+  | some g =>
+      right
+      cases hterm : syllableTerm s.payload.ty g with
+      | none =>
+          have hnone := Slot.eval_none_of_glyph_some_untyped (sem := sem) (s := s) (g := g)
+              (hg := hg) (ht := hterm)
+          -- contradiction with h
+          cases hnone ▸ h
+      | some tb =>
+          refine ⟨g, tb.1, tb.2, ?_, hterm, ?_⟩
+          · exact rfl
+          have hsome := Slot.eval_glyph_some (sem := sem) (s := s) (g := g) (b := tb.1) (t := tb.2)
+              (hg := hg) (ht := hterm)
+          have : o = ⟨tb.1, interp sem tb.2 s.payload.val⟩ :=
+            Slot.eval_deterministic (sem := sem) (s := s) h hsome
+          simp [this]
+
 end UEM

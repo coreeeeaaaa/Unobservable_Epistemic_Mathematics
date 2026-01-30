@@ -5,7 +5,7 @@ namespace UEM
 /-!
 Minimal theorem skeletons for fractal structures (no case enumeration).
 These theorems express structural laws only.
--/-
+-/
 
 /-- Refinement shifts level index by +1 (definitional). -/
 theorem FractalCube.refine_level {side height depth : Nat}

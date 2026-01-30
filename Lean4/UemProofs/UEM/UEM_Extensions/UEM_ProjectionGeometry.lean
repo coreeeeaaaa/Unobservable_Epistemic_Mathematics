@@ -23,6 +23,29 @@ theorem projObj_idempotent (P : ProjectionSystem) (a : ObjType) :
     P.projObj (P.projObj a) = P.projObj a :=
   P.idempotent a
 
+/-! ## Set-level projection exchange (idempotent image) -/
+
+def projSet (P : ProjectionSystem) (S : Set ObjType) : Set ObjType :=
+  P.projObj '' S
+
+theorem projSet_idempotent (P : ProjectionSystem) (S : Set ObjType) :
+    projSet P (projSet P S) = projSet P S := by
+  classical
+  ext a
+  constructor
+  · intro ha
+    rcases ha with ⟨b, hb, hba⟩
+    rcases hb with ⟨x, hxS, rfl⟩
+    -- a = P.projObj (P.projObj x) = P.projObj x
+    have : P.projObj (P.projObj x) = P.projObj x := P.idempotent x
+    refine ⟨x, hxS, ?_⟩
+    simpa [hba] using this.symm
+  · intro ha
+    rcases ha with ⟨x, hxS, rfl⟩
+    refine ⟨P.projObj x, ?_, ?_⟩
+    · exact ⟨x, hxS, rfl⟩
+    · exact P.idempotent x
+
 /-- Extract coordinate projection idempotence (structural law). -/
 theorem projCoord_idempotent (P : ProjectionSystem)
     {side height depth : Nat} (c : Coord side height depth) :
