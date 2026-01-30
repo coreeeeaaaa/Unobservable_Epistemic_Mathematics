@@ -47,3 +47,9 @@ Sources of Truth (priority):
 ## C) No unresolved mismatches
 
 All public docs align with Lean symbols in this repository.
+
+## D) Additional core results (non-document)
+
+| Result | Lean Theorem(s) | File |
+|---|---|---|
+| Observed fragment as full & faithful inclusion | `observedInclusion` (Full, Faithful) | `Lean4/UemProofs/UEM/UEM_ObservedSubcategory.lean` |
