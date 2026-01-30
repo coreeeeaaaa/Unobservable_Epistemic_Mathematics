@@ -3,9 +3,10 @@ import UemProofs.UEM.UEM_Calculus
 namespace UEM
 
 /-!
-Conservativity of the observed fragment inside the full UEM core.
-This is a purely mathematical statement: the observed sublanguage embeds
-into the full system without adding new equations about observed terms.
+Observed fragment embedding / full subcategory setup / non‑surjectivity witness.
+This file only establishes the observed substructure and its basic embedding
+properties (injective inclusion, non‑surjectivity). It does not assert any
+global extension optimality.
 -/
 
 /-! ## Observed object types -/
