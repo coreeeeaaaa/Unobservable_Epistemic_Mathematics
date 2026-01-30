@@ -37,7 +37,7 @@
    - `CreateSpark : World → Spark`
    - `Ignite : Spark → Actyon`
    - `Escalate : Actyon → Nat → Escalade`
-   - `Collapse : Escalade → Secare`
+   - `Commit : Escalade → Secare`
 
 ---
 
@@ -105,8 +105,8 @@ Extension 모듈은 다음 요건을 충족해야 한다.
 ## 제10조: 정본 파일과 변경 기록
 정본 파일:
 - `UEM_CANONICAL_SPEC.md` (정의/구조의 상세 명세)
-- `UEM_Lean4_Proofs/UemProofs/UEM/*.lean` (형식 검증 소스)
-- `UEM_Lean4_Proofs/UEM_PROGRESS.md` (작업 연속성 기록)
+- `Lean4/UemProofs/UEM/*.lean` (형식 검증 소스)
+- `Lean4/UEM_PROGRESS.md` (작업 연속성 기록)
 
 모든 변경은 **Progress Log에 기록**해야 한다.
 

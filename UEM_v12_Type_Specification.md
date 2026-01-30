@@ -1,90 +1,71 @@
-# UEM v12.0: 객체 및 연산자 타입 명세서 (Object & Operator Type Specification)
+# UEM v12.0: Object & Operator Type Specification (Pure Math)
 
-
----
-
-## 제1장: 타입 계층 정의 (Type Hierarchy Definition)
-
-모든 UEM 구성 요소는 아래의 집합(Set) 또는 공간(Space) 중 하나에 속해야 한다.
-
-### 1.1 관측계 객체 (Observed Types: $\mathbb{T}_{obs}$)
-
-표준 수학의 객체. 기존 수학 체계와의 호환성을 보장한다.
-
-*   **Scalar ($S$):** $\mathbb{R}$ 또는 $\mathbb{C}$ 체 위의 값. 타입: `Scalar : Type`.
-*   **Vector ($V$):** 벡터 공간 $\mathbb{R}^n$의 원소. 타입: `Vector (n : Nat) : Type`.
-*   **Tensor ($T$):** 다중 선형 대수 객체 $V \otimes \dots \otimes V^*$. 타입: `Tensor (k : Nat) : Type`.
-
-### 1.2 비관측계 객체 (Epistemic Types: $\mathbb{T}_{unobs}$)
-
-UEM 고유의 인식론적 상태 객체. **이것들은 연산자가 아닌 타입이다.**
-
-*   **Spark ($Sp$):** 초기 발화점. 위상적 특이점. 타입: `Spark : Type`.
-*   **Actyon ($Ac$):** 운동성/의도를 가진 상태. 비가환 리 대수(Lie Algebra) $\mathfrak{g}$의 원소. 타입: `Actyon : Type`.
-*   **Escalade ($Es$):** 프랙탈 재귀 구조체. 격자 공간 $\mathcal{L}$의 부분 집합 열. 타입: `Escalade : Type`.
-*   **Secare ($Se$):** 확정된 고체(Solid). 관측이 완료되어 불변하는 상태. 위상 공간의 닫힌 집합 $K$와 측도 $\mu(K)$를 포함하는 튜플. 타입: `Secare : Type`.
-
-### 1.3 메타 객체 (Meta Types: $\mathbb{T}_{meta}$)
-
-연산의 컨텍스트를 결정하는 환경 변수.
-
-*   **World ($W$):** 상태 공간 전체. 타입: `World : Type`.
-*   **Observer ($O$):** 관측 사영 함수 $\Pi_O$를 결정하는 주체. 타입: `Observer : Type`.
-*   **Margin ($M$):** 커널 공간 $\ker(\Pi_O)$. 타입: `Margin (O : Observer) : Type`.
+This document gives the **pure mathematical** type/operator specification
+aligned with the Lean core.
 
 ---
 
-## 제2장: 연산자 명세 (Operator Specification)
+## 1. Type Hierarchy
 
-연산자는 반드시 $f: Domain \to Codomain$ 형태의 시그니처를 가져야 한다. 한글 음절은 이 연산자의 기호적 표현이다.
+All UEM components must inhabit one of the following types.
 
-### 2.1 생성 및 변환 연산 (Generative & Transition Ops)
+### 1.1 Observed Types
+- **Scalar**: `Scalar : Type` (defined as `ℝ`)
+- **Vector**: `Vector (n : Nat) : Type`
+- **Tensor**: `Tensor (k : Nat) : Type`
 
-*   **CreateSpark (점화):** 관측자가 세계의 특정 지점에서 특이점을 생성.
-    *   `Op_{gen}: W \to O \to Sp`
-*   **Ignite (활성):** 점화를 방향성 값으로 변환.
-    *   `Op_{ig}: Sp \to Ac`
-*   **Escalate (상승):** 방향성 값을 프랙탈 재귀 구조로 확장.
-    *   `Op_{esc}: Ac \times \mathbb{N} \to Es`
-*   **Collapse/Commit (붕괴/확정):** 프랙탈 구조를 단일한 '두께'를 가진 확정 고체로 사영 및 고정. **이것이 세카레를 만드는 연산이며, 세카레 자체는 결과값이다.**
-    *   `Op_{commit}: Es \to Se`
+### 1.2 Epistemic Types
+- **Spark**: `Spark : Type` (field `origin : Scalar`)
+- **Actyon**: `Actyon : Type` (fields `direction : Scalar`, `intensity : Nat`)
+- **Escalade**: `Escalade : Type` (field `depth : Nat`)
+- **Secare**: `Secare : Type` (field `thickness : ℝ≥0∞`)
 
-### 2.2 한글 매핑 연산 (Hangul Calculus Mapping)
-
-기존 미적분 기호를 UEM 한글 기호로 대체 및 확장한다.
-
-| 기존 기호 | UEM 한글 기호 | 연산자 명칭 | 시그니처 (Signature) | 의미/역할 |
-|---|---|---|---|---|
-| $\partial / \partial x$ | **사 (Sa)** | 공간 변화율 | `Es \to V` | 에스컬레이드 구조의 공간적 기울기 추출 |
-| $\partial / \partial t$ | **시 (Si)** | 시간 변화율 | `Ac \to S` | 액티언의 시간적 흐름(속도) 추출 |
-| $\int$ | **마 (Ma)** | 누적/집계 | `Sp \to Se` | 스파크들의 집합을 적분하여 세카레(질량)로 변환 |
-| $\nabla$ | **나 (Na)** | 발산/확산 | `Ac \to Es` | 액티언을 주변 슬롯으로 확산(Del 연산) |
-| $Ker(\cdot)$ | **여 (Yeo)** | 여백 추출 | `O \to M` | 관측자의 인식 불가능 영역(커널) 반환 |
-| $\otimes$ | **겹 (Gyeop)** | 비가환 중첩 | `Ac \times Ac \to Ac` | 두 액티언의 충돌/간섭 (순서 중요) |
+### 1.3 Meta Types
+- **WorldData**: `WorldData : Type`
+- **ObserverData**: `ObserverData : Type`
+- **MarginData**: `MarginData : Type`
+- **PossibleWorld**: `PossibleWorld : Type`
+- **Descriptor**: `Descriptor : Type`
 
 ---
 
-## 제3장: 한글 프랙탈 큐브 구조 (Hangul Fractal Cube Structure)
+## 2. Core Operator Signatures
 
-한글을 단순 문자가 아닌 **좌표계이자 함수 컨테이너**로 정의한다.
+Operators are total functions with fixed domains and codomains.
 
-### 3.1 슬롯(Slot)과 큐브(Cube) 정의
-
-*   **Slot ($s$):** 내용의 최소 단위.
-    `s = (coord, glyph, role, meta)`
-    *   `coord`: $(i, j, k, depth, ...)$ 좌표. 3차원 공간뿐만 아니라 시간, 깊이, 관측자 ID 등을 포함하는 다차원 튜플.
-    *   `glyph`: 해당 슬롯에 할당된 한글 음절.
-    *   `role`: 글자에 매핑된 연산자 함수 `f : T_{in} \to T_{out}`.
-    *   `meta`: $(W, O, t, ...)$ 등의 컨텍스트 값.
-
-*   **Cube ($C_L$):** 슬롯들의 집합이자 재귀적 객체.
-    `C_L = \{ s_{coord} \mid coord \in \mathbb{Z}^n \} \cup \{ C_{L+1} \}`
-    프랙탈 깊이 $L$에서의 큐브는 하위 큐브 $C_{L+1}$를 포함할 수 있다.
-
-### 3.2 음절-연산자 파싱 (Syllable-Operator Parsing)
-
-음절 $H$는 초성($C$), 중성($V$), 종성($F$)으로 분해되며, 각각은 부분 연산자다.
-`Op(H) = F \circ V \circ C`
-(합성 순서는 적용 로직에 따라 $C \to V \to F$ 순)
+- `CreateSpark : World → Spark`
+- `Ignite : Spark → Actyon`
+- `Escalate : Actyon → Nat → Escalade`
+- `Commit : Escalade → Secare`
 
 ---
+
+## 3. Hangul Calculus Mapping (Typed Composition)
+
+Let a syllable be `Syllable := (C, V, F?)` with:
+- `Choseong`, `Jungseong`, `Jongseong`.
+
+Type mappings are relations:
+- `CMap : ObjType → ObjType → Prop`
+- `VMap : ObjType → ObjType → Prop`
+- `FMap : ObjType → ObjType → Prop`
+
+Composition order is fixed: **C → V → F**.
+
+---
+
+## 4. Slot/Cube Structure
+
+- `Coord side height depth := Fin side × Fin side × Fin height × Fin depth`
+- `Slot` contains coordinates, glyph, payload, direction, dimension, meta.
+- `Cube` is a total assignment of slots over coordinates.
+
+---
+
+## 5. Lean Alignment
+
+All specifications above are **exactly** the structures and signatures
+in the Lean core:
+- `Lean4/UemProofs/UEM/UEM_Calculus.lean`
+- `Lean4/UemProofs/UEM/UEM_HangulMatrix.lean`
+- `Lean4/UemProofs/UEM/UEM_Foundations.lean`

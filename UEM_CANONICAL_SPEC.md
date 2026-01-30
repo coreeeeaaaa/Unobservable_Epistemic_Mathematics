@@ -30,7 +30,7 @@
 - **정리(Lean 증명)**: OuterMeasure 공리 만족
 
 > 관련 Lean 소스:
-> - `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Foundations.lean`
+> - `Lean4/UemProofs/UEM/UEM_Foundations.lean`
 
 ---
 
@@ -54,7 +54,7 @@
 - `Descriptor : Type`
 
 > 관련 Lean 소스:
-> - `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean`
+> - `Lean4/UemProofs/UEM/UEM_Calculus.lean`
 
 ---
 
@@ -65,7 +65,7 @@
 - `CreateSpark : World → Spark`
 - `Ignite : Spark → Actyon`
 - `Escalate : Actyon → Nat → Escalade`
-- `Collapse : Escalade → Secare`
+- `Commit : Escalade → Secare`
 
 ### 3.2 연산자 구조
 - `Operator` : `Carrier a → Carrier b`
@@ -153,5 +153,5 @@ Extension은 반드시 “Conjecture/Definition”으로 표기하며, Lean 증�
 ## 10. 정본 파일
 - `UEM_CONSTITUTION.md`
 - `UEM_CANONICAL_SPEC.md`
-- `UEM_Lean4_Proofs/UemProofs/UEM/*.lean`
-- `UEM_Lean4_Proofs/UEM_PROGRESS.md`
+- `Lean4/UemProofs/UEM/*.lean`
+- `Lean4/UEM_PROGRESS.md`

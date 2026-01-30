@@ -1,51 +1,46 @@
 # UEM Canonical Mapping Table (Docs ↔ Lean)
 
-Scope: /Users/a/dev/01-수학시스템
+Scope: `UEM-GitHub-Release` (public, pure math only)
 Sources of Truth (priority):
-1) UEM_CONSTITUTION.md
-2) UEM_Lean4_Proofs/UemProofs/UEM/*.lean
-3) UEM_CANONICAL_SPEC.md
-4) UEM_Lean4_Proofs/UEM_PROGRESS.md
+1) `UEM_CONSTITUTION.md`
+2) `Lean4/UemProofs/UEM/*.lean`
+3) `UEM_CANONICAL_SPEC.md`
 
 ---
 
 ## A) Constitution → Lean mapping
 
-| Doc Item | Lean Symbol | File | Status | Notes |
-|---|---|---|---|---|
-| World := Type u | `World` abbrev | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Foundations.lean` | OK | `World : Type (w+1)` in code (universe level differs in name only). |
-| Observer class (observe/kernel/kernel_spec) | `class Observer` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Foundations.lean` | OK | Fields match. |
-| kernel equivalence theorem | `Observer.kernel_is_equivalence` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Foundations.lean` | OK | Present. |
-| Thickness as OuterMeasure | `ThicknessBasis.outerMeasure`, `ThicknessBasis.thickness` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Foundations.lean` | OK | Formalized via Carathéodory. |
-| Thickness axioms proved | `thickness_is_outer_measure` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Foundations.lean` | OK | Proof present. |
-| Object types list | `ObjType` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | OK | Contains scalar/vector/tensor/spark/actyon/escalade/secare/world/observer/margin/... |
-| Operator signatures | `CreateSpark`, `Ignite`, `Escalate`, `Commit` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | MISMATCH | Docs say `Collapse`, code defines `Commit`. |
-| Hangul calculus (C/V/F) | `Syllable`, `CMap`, `VMap`, `FMap`, `OpTerm`, `syllableTerm` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | OK | Partial/totality properties are not fully proved. |
-| Hangul matrix relation | `MatrixRel` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_HangulMatrix.lean` | OK | Soundness lemmas only. |
-| Slot/Cube definitions | `Coord`, `Slot`, `Cube` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | OK | Cardinality theorems present. |
-| Coordinate cardinality | `coord_card_3x3`, `coord_card_3x3x3` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | OK | Theorems present. |
-| Category structure | `instance : Category ObjType` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Structure.lean` | OK | Proofs present. |
+| Doc Item | Lean Symbol | File | Status |
+|---|---|---|---|
+| World := Type u | `World` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` | OK |
+| Observer (observe/kernel/kernel_spec) | `class Observer` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` | OK |
+| kernel equivalence | `Observer.kernel_is_equivalence` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` | OK |
+| Thickness outer measure | `ThicknessBasis.outerMeasure`, `ThicknessBasis.thickness` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` | OK |
+| Thickness axioms | `thickness_is_outer_measure` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` | OK |
+| Object types list | `ObjType` + `Carrier` | `Lean4/UemProofs/UEM/UEM_Calculus.lean` | OK |
+| Core operator signatures | `CreateSpark`, `Ignite`, `Escalate`, `Commit` | `Lean4/UemProofs/UEM/UEM_Calculus.lean` | OK |
+| Hangul calculus (C/V/F) | `Syllable`, `CMap`, `VMap`, `FMap`, `OpTerm` | `Lean4/UemProofs/UEM/UEM_Calculus.lean` | OK |
+| Hangul matrix relation | `MatrixRel` + soundness lemmas | `Lean4/UemProofs/UEM/UEM_HangulMatrix.lean` | OK |
+| Slot/Cube + coord counts | `Coord`, `Slot`, `Cube`, `coord_card_*` | `Lean4/UemProofs/UEM/UEM_Calculus.lean` | OK |
+| Category structure | `instance : Category ObjType` | `Lean4/UemProofs/UEM/UEM_Structure.lean` | OK |
 
 ---
 
-## B) Canonical Spec → Lean mapping
+## B) Proof Docs → Lean mapping
 
-| Spec Item | Lean Symbol | File | Status | Notes |
-|---|---|---|---|---|
-| World / Observer / Kernel | `World`, `Observer`, `kernel_is_equivalence` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Foundations.lean` | OK | Matches. |
-| Thickness OuterMeasure | `ThicknessBasis.outerMeasure`, `thickness_is_outer_measure` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Foundations.lean` | OK | Matches. |
-| Objects as types | `ObjType` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | OK | Matches list. |
-| Operator signatures | `CreateSpark`, `Ignite`, `Escalate`, `Commit` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | MISMATCH | Spec uses `Collapse`; code uses `Commit`. |
-| Operator structure/comp/par | `Operator`, `Operator.comp`, `Operator.par` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | OK | Present. |
-| Hangul calculus (C/V/F, OpTerm) | `CMap`, `VMap`, `FMap`, `OpTerm`, `syllableTerm` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | OK | Partiality/totality still needs proofs. |
-| MatrixRel and classes | `MatrixRel` + class predicates | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_HangulMatrix.lean` | OK | Soundness only. |
-| Slot/Cube definitions | `Coord`, `Slot`, `Cube` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean` | OK | Present. |
-| Category structure claim | `instance : Category ObjType` | `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Structure.lean` | OK | Present. |
+| Doc | Lean Theorem(s) | File |
+|---|---|---|
+| `D1_A7_Axiom_Proof.md` | `thickness_countable_subadditivity` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` |
+| `D2_Kernel_Margin_Inequality_Proof.md` | `thickness_margin_inequality` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` |
+| `D3_Projection_Exchange_Proof.md` | `projObj_idempotent`, `projSet_idempotent`, `projCoord_idempotent`, `DimReduction_idempotent`, `kernel_iff_alias` | `Lean4/UemProofs/UEM/UEM_Extensions/UEM_ProjectionGeometry.lean` |
+| `D4_Church_Rosser_Proof.md` | `Slot.eval_deterministic`, `Slot.eval_preserves_type` | `Lean4/UemProofs/UEM/UEM_Calculus.lean` |
+| `D5_Margin_Persistence_Proof.md` | `margin_union` | `Lean4/UemProofs/UEM/UEM_Foundations.lean` |
+| `D6_SCD_Stability_Proof.md` | `SCDSystem.stable_step'`, `stable_in_phase`, `unstable_in_phase` | `Lean4/UemProofs/UEM/UEM_Extensions/UEM_SCD_AHS.lean` |
+| `D8_Fractal_Convergence_Proof.md` | `FractalCube.refine_level`, `EscalateCube_level_const`, `EscalateCube_refine_fixed` | `Lean4/UemProofs/UEM/UEM_Extensions/UEM_Fractal.lean`, `UEM_Fractal_Theorems.lean` |
+| `D10_PH_Stability_Proof.md` | `PHSystem.stability` | `Lean4/UemProofs/UEM/UEM_Extensions/UEM_PH_Stability.lean` |
 
 ---
 
-## C) Known mismatches / unresolved mappings
-- Collapse vs Commit operator name mismatch between docs and code.
-  - Evidence: `UEM_CONSTITUTION.md`, `UEM_CANONICAL_SPEC.md`,
-    `UEM_Lean4_Proofs/UemProofs/UEM/UEM_Calculus.lean`
+## C) No unresolved mismatches
 
+All public docs align with Lean symbols in this repository.
