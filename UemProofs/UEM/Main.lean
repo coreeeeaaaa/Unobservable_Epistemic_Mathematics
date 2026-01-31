@@ -1,7 +1,30 @@
 import UemProofs.UEM.UEM_Foundations
 import UemProofs.UEM.UEM_Calculus
+import UemProofs.UEM.UEM_CoreCompleteness
+import UemProofs.UEM.UEM_CoreModels
+import UemProofs.UEM.UEM_CoreMetaBridge
+import UemProofs.UEM.UEM_TaggedEvalCore
+import UemProofs.UEM.UEM_EpistemicEmbedding
+import UemProofs.UEM.UEM_OperatorSemantics
 import UemProofs.UEM.UEM_Structure
 import UemProofs.UEM.UEM_HangulMatrix
+import UemProofs.UEM.UEM_HangulCardinality
+import UemProofs.UEM.UEM_HangulDirection
+import UemProofs.UEM.UEM_ObservedSubcategory
+import UemProofs.UEM.UEM_CartesianProduct
+import UemProofs.UEM.UEM_ObservedEmbedding
+import UemProofs.UEM.UEM_Theory
+import UemProofs.UEM.UEM_Conservativity_Strong
+import UemProofs.UEM.UEM_Semantics
+import UemProofs.UEM.UEM_Soundness
+import UemProofs.UEM.UEM_ModelExistence
+import UemProofs.UEM.UEM_Extensions.UEM_ProjectionGeometry
+import UemProofs.UEM.UEM_Extensions.UEM_SCD_AHS
+import UemProofs.UEM.UEM_Extensions.UEM_Fractal
+import UemProofs.UEM.UEM_Extensions.UEM_Fractal_Theorems
+import UemProofs.UEM.UEM_Extensions.UEM_PH_Stability
+import UemProofs.UEM.UEM_MetaStrataBridge
+import UemProofs.UEM.UEM_MetaStrata_Theorems
 
 /-! # UEM Main Entry Point (Pure Formal Core) -/
 
