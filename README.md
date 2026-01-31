@@ -1,9 +1,9 @@
 # uem_proofs
 
 ## Canonical Docs
-- Constitution: `/Users/a/dev/01-수학시스템/UEM_CONSTITUTION.md`
-- Canonical Spec: `/Users/a/dev/01-수학시스템/UEM_CANONICAL_SPEC.md`
-- Continuation Log: `UEM_PROGRESS.md`
+- Constitution: `UEM_CONSTITUTION.md`
+- Canonical Spec: `UEM_CANONICAL_SPEC.md`
+- Continuation Log: `Lean4/UEM_PROGRESS.md`
 
 ## GitHub configuration
 
