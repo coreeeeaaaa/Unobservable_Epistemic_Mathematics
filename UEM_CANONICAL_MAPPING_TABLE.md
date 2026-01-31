@@ -59,3 +59,4 @@ All public docs align with Lean symbols in this repository.
 | UEM-0 models and evaluation | `Model`, `evalM`, `coreModel` | `Lean4/UemProofs/UEM/UEM_Semantics.lean` |
 | UEM-0 soundness | `Holds`, `soundness` | `Lean4/UemProofs/UEM/UEM_Soundness.lean` |
 | UEM-0 model existence | `NontrivialModel`, `model_exists` | `Lean4/UemProofs/UEM/UEM_ModelExistence.lean` |
+| UEM-0 observed derivations | `Obs0`, `Obs0Term`, `ObservedDerives`, `obs0Term_preserved`, `equational_conservativity` | `Lean4/UemProofs/UEM/UEM_Conservativity_Strong.lean` |
